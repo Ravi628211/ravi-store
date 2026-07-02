@@ -1,10 +1,9 @@
 <html class="light" lang="en"><head></head><body class="bg-background text-on-surface font-body selection:bg-secondary selection:text-white overflow-x-hidden">```html
 
 
-
     <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ravi Store | Premium Indian Heritage Marketplace</title>
+<title>Ravi Store | Premium Heritage Marketplace</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -15,6 +14,7 @@
                 extend: {
                     "colors": {
                         "primary": "#002366",
+                        "primary-container": "#002366",
                         "secondary": "#fd8b00",
                         "on-primary": "#ffffff",
                         "on-secondary": "#ffffff",
@@ -56,6 +56,7 @@
     </script>
 <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill-1 { font-variation-settings: 'FILL' 1; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
@@ -65,18 +66,26 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
-<!-- Top AppBar -->
-<header class="fixed top-0 w-full z-50 bg-white shadow-sm h-16 md:h-20 flex items-center transition-all duration-300" id="main-header">
-<div class="max-w-container-max mx-auto w-full px-margin-mobile md:px-md flex items-center justify-between gap-gutter">
+<!-- Header Section -->
+<header class="fixed top-0 w-full z-50 bg-white shadow-sm transition-all duration-300" id="main-header">
+<!-- Top Bar -->
+<div class="h-16 md:h-20 border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto w-full h-full px-margin-mobile md:px-md flex items-center justify-between gap-gutter">
 <div class="flex items-center gap-4 shrink-0">
-<button class="md:hidden p-2 active:scale-95 transition-transform">
+<button class="lg:hidden p-2 active:scale-95 transition-transform">
 <span class="material-symbols-outlined text-primary">menu</span>
 </button>
 <img alt="Ravi Store Logo" class="h-8 md:h-10" src="https://lh3.googleusercontent.com/aida/AP1WRLtfWkg_BKfV2OKgZOEFnOTVPDUA6YznZZVOMqsmFkh9qpvqWy_MQIwLXz1st4o72Hnr_CPdZmREuBbDKXWeAOcjqb_a-MRQ5SJUC2Vx-MRGgy8VJgAaxVT0Rtfq4H62MFpJBVO40RIcU6WDyrmqPB--iOZ8mkI8-eKP_Hk3SfaA0bnawpqYpI4eoIS6OX034FJ2LvcimhNVRfwHWhGz0UJQb3f9brOIU3Ta-C3m7HpYZ111vyK_OOzPmf4"/>
 </div>
-<div class="hidden md:flex flex-grow max-w-2xl relative group">
-<input class="w-full bg-surface-container border border-outline-variant rounded-xl py-2.5 px-12 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/60" placeholder="Search for premium handicrafts, apparel..." type="text"/>
+<div class="hidden lg:flex flex-grow max-w-2xl relative group">
+<input class="w-full bg-surface-container border border-outline-variant rounded-xl py-2.5 px-12 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/60" placeholder="Search for products, brands and more..." type="text"/>
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary">search</span>
 </div>
 <div class="flex items-center gap-2 md:gap-6 shrink-0">
@@ -84,7 +93,7 @@
 <span class="material-symbols-outlined">person</span>
 <span class="hidden md:block text-[10px] font-bold mt-1 uppercase">Account</span>
 </button>
-<button class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors relative">
+<button class="hidden sm:flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors relative">
 <span class="material-symbols-outlined">favorite</span>
 <span class="hidden md:block text-[10px] font-bold mt-1 uppercase">Wishlist</span>
 <span class="absolute top-1 right-1 md:right-2 bg-secondary text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
@@ -96,371 +105,196 @@
 </button>
 </div>
 </div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden lg:block bg-white h-12 border-b border-outline-variant/20 shadow-sm">
+<div class="max-w-container-max mx-auto px-md h-full flex items-center justify-center gap-10">
+<a class="text-sm font-bold text-primary hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Home</a>
+<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Categories</a>
+<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Today's Deals</a>
+<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">New Arrivals</a>
+<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Best Sellers</a>
+<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Contact</a>
+</div>
+</nav>
 </header>
-<main class="mt-16 md:mt-20">
+<main class="mt-[64px] md:mt-[80px] lg:mt-[128px]">
 <!-- Hero Section -->
-<section class="relative h-[60vh] md:h-[80vh] overflow-hidden bg-primary">
+<section class="relative h-[50vh] md:h-[70vh] overflow-hidden bg-primary">
 <div class="relative h-full max-w-container-max mx-auto px-margin-mobile md:px-md flex items-center">
 <div class="w-full md:w-3/5 space-y-6 md:space-y-8 z-10 animate-fade-in-up">
 <span class="inline-block px-4 py-1.5 bg-secondary/20 text-secondary font-bold text-xs rounded-full border border-secondary/30 uppercase tracking-widest">Imperial Heritage Collection</span>
-<h1 class="font-display text-[36px] md:text-6xl text-white leading-tight font-bold">
+<h1 class="font-display text-[32px] md:text-6xl text-white leading-tight font-bold">
                     Timeless Elegance, <br/>Modern Indian Crafts.
                 </h1>
-<p class="text-lg md:text-xl text-white/80 max-w-lg font-light">
+<p class="text-base md:text-xl text-white/80 max-w-lg font-light">
                     Experience a curated marketplace of premium apparel, handcrafted jewelry, and royal home decor from the heart of India.
                 </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<button class="px-10 py-4 bg-secondary text-white font-bold rounded-lg shadow-lg hover:shadow-secondary/20 hover:scale-105 transition-all flex items-center gap-2">
+<div class="flex flex-wrap gap-4 pt-2 md:pt-4">
+<button class="px-8 md:px-10 py-3 md:py-4 bg-secondary text-white font-bold rounded-lg shadow-lg hover:shadow-secondary/20 hover:scale-105 transition-all flex items-center gap-2">
                         SHOP NOW
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
 </button>
-<button class="px-10 py-4 bg-transparent border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 transition-all">
-                        EXPLORE COLLECTIONS
+<button class="px-8 md:px-10 py-3 md:py-4 bg-transparent border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 transition-all">
+                        EXPLORE
                     </button>
 </div>
 </div>
 <div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-2/5 h-[90%] pointer-events-none">
 <div class="relative w-full h-full rounded-l-[100px] overflow-hidden shadow-2xl">
 <img alt="Indian Premium Heritage" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-M9eXgYI8398ojnOUePh9yMBanx8PZHgi_8QzUklkb--qNdxWW_7-N4nEMhg6O0W8LaIEtNaD23-O5pzIeaCxTe3V_l3NE20yioEx_ySbn2l-dbQpk-P6m6ymRw-nhuM18gmUgGT6RYJ87EsCgCSpNgmFo15XVcb7qqJ1f06y_OS-JDW9LfBBYFM0j8gyaiursYcAfNT92t62R6u7FK_2csFJUlHhAAeucnjSgLCy_ztCzyQso1wbIUiwdSp5CtJlZug84RalyVM"/>
-<div class="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-primary/40"></div>
 </div>
 </div>
 </div>
 </section>
-<!-- 1. Categories (Polished) -->
-<section class="py-lg md:py-xl bg-white">
+<!-- Categories Section -->
+<section class="py-12 md:py-xl bg-white">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-md text-center">
-<h2 class="font-display text-3xl md:text-4xl text-primary font-bold mb-xl">Shop by Category</h2>
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-<!-- Items -->
+<h2 class="font-display text-2xl md:text-3xl text-primary font-bold mb-10">Shop by Category</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
+<!-- 1. Clothes -->
 <a class="group flex flex-col items-center gap-4" href="#">
 <div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Apparel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWNUUa-4_x1_fEQE4Kq3e0iENqXfJSms7WanRONn0mdx68nelPFARXRX_4RWNjcIbnmBFfXccupDQntv_F4Fn8paRbJPFKMBd0_tzh-6EULzYwl2dBDCfvIr6YH9WVKe-ZQ2bvDEGTd1Ud65ClmoBmMU6TXf8McFXp5H4oB31rHsM3dkRXRs_IdnnmJRrNpX9lfN-5jGTjCAZDbtS_Mo4hT0tyGorvvJ0j9xemkrcQlVuEQwZf8E9d-Oeuin43T_oIZyI-odtTOew"/>
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Clothes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWNUUa-4_x1_fEQE4Kq3e0iENqXfJSms7WanRONn0mdx68nelPFARXRX_4RWNjcIbnmBFfXccupDQntv_F4Fn8paRbJPFKMBd0_tzh-6EULzYwl2dBDCfvIr6YH9WVKe-ZQ2bvDEGTd1Ud65ClmoBmMU6TXf8McFXp5H4oB31rHsM3dkRXRs_IdnnmJRrNpX9lfN-5jGTjCAZDbtS_Mo4hT0tyGorvvJ0j9xemkrcQlVuEQwZf8E9d-Oeuin43T_oIZyI-odtTOew"/>
 </div>
-<span class="font-bold text-primary uppercase tracking-wider text-sm">Apparel</span>
+<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Clothes</span>
 </a>
+<!-- 2. Shoes -->
 <a class="group flex flex-col items-center gap-4" href="#">
 <div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Jewelry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXUo2wkNznl3_ratcURcG1a0grT6v9F_IKq8A-mdKzeLQHfcHKa2JTlthY0RqZ-8uYRHsNnkQT-nAziR1-uieOX5xZDvQJF1t4xJ0779J2FGeWts-s1sWIydx18zkNO7BM7lopWtgPZC4htvZZHx5IA1fueEZQYB1bnmKfCYXviqE2Wjstd2N2suteOljtIlT27qzKMHqT5zyD6kuVa-wuyiHuNnBtsZznDICWq5LvOnKB75B7EMZ4oCyTn2iV5CpSza1nDwcDeug"/>
+<img alt="Shoes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC10XqI9u6O7l3NfO2v7g7p1y7lZ_4Z8p9o9e9r9s9t9u9v9w9x9y9z9A9B9C9D9E9F9G9H9I9J9K9L9M9N9O9P9Q9R9S9T9U9V9W9X9Y9Z"/>
+<img alt="Shoes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzyFoJFBwkDc-f_BroaYQ_dSVvkjPwafLd8SixqmmMn0PCHeA0-b4A0Bjz4EIfyUBPuMjScM_4lGgM37TTHY621pK7pFEO1DiI69G5amX9NUIW6YcFp44DTcbQhQjtXzViRjrf7k7a9h5aDHSrARsDSGMMD-VkvC7bgMhnN607pvcLvl88EBUnHu6pIw1c456eK6tVV5BIoiFRCT_sE8PB9GXQo7l-oxVM5GVmqWGozzRWmDrwjMW17KFDUAk6Qy4YSLDC_7SGtX4"/>
 </div>
-<span class="font-bold text-primary uppercase tracking-wider text-sm">Jewelry</span>
+<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Shoes</span>
 </a>
+<!-- 3. Mobile Accessories -->
 <a class="group flex flex-col items-center gap-4" href="#">
 <div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Home Decor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzyFoJFBwkDc-f_BroaYQ_dSVvkjPwafLd8SixqmmMn0PCHeA0-b4A0Bjz4EIfyUBPuMjScM_4lGgM37TTHY621pK7pFEO1DiI69G5amX9NUIW6YcFp44DTcbQhQjtXzViRjrf7k7a9h5aDHSrARsDSGMMD-VkvC7bgMhnN607pvcLvl88EBUnHu6pIw1c456eK6tVV5BIoiFRCT_sE8PB9GXQo7l-oxVM5GVmqWGozzRWmDrwjMW17KFDUAk6Qy4YSLDC_7SGtX4"/>
+<img alt="Mobile Accessories" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB68zRNs4ytxNaOxFzd1HXpCF85XOLeQDHFtL7huI4UTN49KUA90SYx3cBWb1wEgL49aHUYf8dcS6AKzcJ0kKdL_mi6Rm7QeVnvmFOaUwHO_H7-kpDo1vvD7uHnDLYPhM_CY8bxnJ4M8P0fPQrhfgx9Iigx0wjhzwjFs46orIBENlN6sKwAYUIbsrH61fA84-VAJsgrrvehqPDRUApfY89Nl0kGDpG8W67WoNdKqZZzbFFE2lXL6bH1XyHnsz_Fbl6lBDyKGUwkms"/>
 </div>
-<span class="font-bold text-primary uppercase tracking-wider text-sm">Home Decor</span>
+<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Accessories</span>
 </a>
+<!-- 4. Electronics -->
 <a class="group flex flex-col items-center gap-4" href="#">
 <div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Spices" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNPmF7es2M3fZ5X2MULAesHQtpF_v3ceF42ESuB2KIUUWhbyeqevlb-RdKS4zWqCXiI0ASf1pHDIgwU3ePqFQ7sfowWNIhv1hWCMHgwZ5Xn92fjl4mS4skc8pDtjE5xqaaeCSnryVaEwuRyZgpmqoxVxEQiYPvQ-Jn9LuMDpHHPg408N_mFQAp5F_DONGDLIdq1AvulNjYnxHJLLPMn982HGSk7fZtslA-yA7znFvlYgVUDLHosQGybUdwejuZUjDrN2Lq3-FHIVQ"/>
+<img alt="Electronics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiFoBIz5qoZXIYenraPspZQbsqKm52b-styu4emxzQ5aKXX7bOEDRlg_M2uqk3bMdCorpNXwI6tN320M3SFimbq0itBwLv9tgHaCIyzvSsVbLIbv-S-ZLPc6s-qRTpby3eTZbFwgHP0pImlOsVUc1HW72sU2b96MG6aSxhvvF8gWA49N0IH49oTo4fM6_0sB_0etIPnMlPUF-xr8oz0enGfXlp6JyrXzvFPr8V-T7QmpfjvoPw8T5LmPWeW3baA4oGZNIVj_U_IO4"/>
 </div>
-<span class="font-bold text-primary uppercase tracking-wider text-sm">Spices</span>
+<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Electronics</span>
 </a>
+<!-- 5. Home & Kitchen -->
 <a class="group flex flex-col items-center gap-4" href="#">
 <div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Handicrafts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb68zRNs4ytxNaOxFzd1HXpCF85XOLeQDHFtL7huI4UTN49KUA90SYx3cBWb1wEgL49aHUYf8dcS6AKzcJ0kKdL_mi6Rm7QeVnvmFOaUwHO_H7-kpDo1vvD7uHnDLYPhM_CY8bxnJ4M8P0fPQrhfgx9Iigx0wjhzwjFs46orIBENlN6sKwAYUIbsrH61fA84-VAJsgrrvehqPDRUApfY89Nl0kGDpG8W67WoNdKqZZzbFFE2lXL6bH1XyHnsz_Fbl6lBDyKGUwkms"/>
+<img alt="Home &amp; Kitchen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFKpeRMsB7jQ89KZC-wp1-5y9dqyQVfAv0qBVepzls7znaEtwLwXK78AgJPTu2if01Q0DLkZvdoX_F7N6Di2ab3dJRZmVDrwAi8s-PdVzUJkfC05qz5fTZH5ZzUO2qr-dHFTMz1X9aEY0ldgBEUpY041tHVlDou0vuOldcrGlacBzlu9pS1pNTXf5NVN41fKcRTHkBqvQB2xgxlwqcN5mBTI-1HyYT2qwq7CxtFsvwfjKfTkKfqBFAj8UbXPkopGJmQ7ADm5lUe64"/>
 </div>
-<span class="font-bold text-primary uppercase tracking-wider text-sm">Handicrafts</span>
+<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Home &amp; Kitchen</span>
 </a>
+<!-- 6. Beauty -->
 <a class="group flex flex-col items-center gap-4" href="#">
 <div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Fine Art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8X5K_OlyMPiVLJNqqpbrGKB8EBAgduC2lGbhuITDyCuDd_3T45VBExeJ0EA0DxfViNK3gL-g30S7YqJfM2TvFuQOefucqtn2fgusMCiSMKBiqy-yz0XLrOjtrUCYaVO1920kFxD_SPKotybLDuMpKIcoxhsD6M7sjG31YmBAzJEWQtDg4PaQvF4XC1kfvDCx9n5LzlL_gYef0e45ANQ0aea3a7Z9lzMYSLIvbeVdcrr9MnqGZUHDbygZKSm0pi0xkscNcY3HaTUg"/>
+<img alt="Beauty" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXUo2wkNznl3_ratcURcG1a0grT6v9F_IKq8A-mdKzeLQHfcHKa2JTlthY0RqZ-8uYRHsNnkQT-nAziR1-uieOX5xZDvQJF1t4xJ0779J2FGeWts-s1sWIydx18zkNO7BM7lopWtgPZC4htvZZHx5IA1fueEZQYB1bnmKfCYXviqE2Wjstd2N2suteOljtIlT27qzKMHqT5zyD6kuVa-wuyiHuNnBtsZznDICWq5LvOnKB75B7EMZ4oCyTn2iV5CpSza1nDwcDeug"/>
 </div>
-<span class="font-bold text-primary uppercase tracking-wider text-sm">Fine Art</span>
+<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Beauty</span>
 </a>
 </div>
 </div>
 </section>
-<!-- 2. Featured Products (8 items) -->
-<section class="py-lg md:py-xl bg-surface-container-low">
+<!-- Flash Sale Section -->
+<section class="py-12 md:py-xl bg-primary text-white relative overflow-hidden">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-md">
-<div class="flex items-center justify-between mb-xl">
-<div>
-<h2 class="font-display text-3xl text-primary font-bold">Featured Creations</h2>
-<p class="text-on-surface-variant mt-1">Exquisite pieces hand-selected for the discerning collector.</p>
+<div class="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
+<div class="text-center md:text-left">
+<span class="bg-secondary text-white px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-3 inline-block">Flash Sale</span>
+<h2 class="font-display text-3xl md:text-4xl font-bold">The Royal Bazaar Deals</h2>
+<p class="text-white/70 mt-2">Ends in:</p>
 </div>
-<a class="hidden md:flex items-center gap-2 text-secondary font-bold hover:gap-4 transition-all" href="#">
-                    VIEW ALL PRODUCTS <span class="material-symbols-outlined">east</span>
-</a>
-</div>
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
-<!-- Product 1 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover-lift shadow-sm flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<div class="absolute top-3 left-3 z-10 bg-secondary text-white px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tighter shadow-sm">New Arrival</div>
-<img alt="Blue Topaz Necklace" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcEL3Z_4g2j3TmlEc-Pv9xzuNOcbhx_6gWH2wiRrfywdc07_e0RqrOO8ol1rXPb2BDuLpWapdBEaFeeDjSHLGU1uNZdkV7za7P2wSrqjdUh61HoSM57mmXTNvtN1NIqhW5A2y5gER1eLyFU9UJikfwZ5DZPfZLYvV5_Wjo_xmDSZ3vij0J6u6G6-9PDoL50BP9I1tbdfmPmd4JqfJ1v02BNXX1D_66PLJn6nmZHUqF7SaK9NCL_zCU2O9WbiRMFVF4JyUo3uxhLd8"/>
-<button class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] py-3 bg-primary text-white font-bold text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[16px]">shopping_bag</span> ADD TO CART
-                        </button>
-</div>
-<div class="p-4 flex-grow flex flex-col">
-<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">Artisan Silver</p>
-<h3 class="font-display font-bold text-primary mb-2 line-clamp-1">Royal Blue Topaz Necklace</h3>
-<div class="flex items-center gap-2 mt-auto">
-<span class="text-xl font-bold text-primary">₹4,999</span>
-<span class="text-xs text-on-surface-variant line-through">₹7,140</span>
-</div>
-</div>
-</div>
-<!-- Product 2 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover-lift shadow-sm flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<div class="absolute top-3 left-3 z-10 bg-red-600 text-white px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tighter">-15%</div>
-<img alt="Premium Saffron" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtJEUIiULtnzt38aGP27sNV55x_s8saS-H80fotL3ZuH2yzOxW7Llt8sNcdOiZb1SZez1qrmQ4lNH1xnWWoqU0_vMS0Rzy0oBbl50pGlCjBCyqg3LhZEfvSJVdTG46cAk6LMPGTTlI62V15fKqQlzEvzM_QIH-XD4LUfr7lBW2KzG5tEELqq-1WxufkJAAJp6FF2MwSYLQjN2R09rAHnJ7BPs5Wt1BHCqASQ1X6n6ko9teVBYX2u2hqNVkcs7LwAiiY2aKJtkC8cI"/>
-<button class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] py-3 bg-primary text-white font-bold text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[16px]">shopping_bag</span> ADD TO CART
-                        </button>
-</div>
-<div class="p-4 flex-grow flex flex-col">
-<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">Heritage Flavors</p>
-<h3 class="font-display font-bold text-primary mb-2 line-clamp-1">Kashmiri Saffron Selection</h3>
-<div class="flex items-center gap-2 mt-auto">
-<span class="text-xl font-bold text-primary">₹1,250</span>
-<span class="text-xs text-on-surface-variant line-through">₹1,470</span>
-</div>
-</div>
-</div>
-<!-- Product 3 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover-lift shadow-sm flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<img alt="Silk Shawl" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp9zV10VofP1qsfum2uFZQ1mSwKgwFqBaXmdpAWvEyfUyHJuYsvfbt8O4vCcGhD-tuvs1Eoi__B4vx2b09Sa_SB8cn-u655GNn2Oc9Qt8h9McsRUrPyQCgApX1JjFxn2oEX0Ku5LcNGPBUAmu0tQVqCluRu77M96KFqFVj5r2cwBCxdarVaCJQqjGuhAN7px-EmrCA1gA17X8MsbtglxvsUb8YsaGqj5AqUYtt8fjrfNHmPYfvpFok7_mewqTYM5f8_oi24ug1Tco"/>
-<button class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] py-3 bg-primary text-white font-bold text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[16px]">shopping_bag</span> ADD TO CART
-                        </button>
-</div>
-<div class="p-4 flex-grow flex flex-col">
-<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">Varanasi Looms</p>
-<h3 class="font-display font-bold text-primary mb-2 line-clamp-1">Pure Silk Pashmina Shawl</h3>
-<div class="flex items-center gap-2 mt-auto">
-<span class="text-xl font-bold text-primary">₹8,500</span>
-</div>
-</div>
-</div>
-<!-- Product 4 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover-lift shadow-sm flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<img alt="Brass Lamp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiFoBIz5qoZXIYenraPspZQbsqKm52b-styu4emxzQ5aKXX7bOEDRlg_M2uqk3bMdCorpNXwI6tN320M3SFimbq0itBwLv9tgHaCIyzvSsVbLIbv-S-ZLPc6s-qRTpby3eTZbFwgHP0pImlOsVUc1HW72sU2b96MG6aSxhvvF8gWA49N0IH49oTo4fM6_0sB_0etIPnMlPUF-xr8oz0enGfXlp6JyrXzvFPr8V-T7QmpfjvoPw8T5LmPWeW3baA4oGZNIVj_U_IO4"/>
-<button class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] py-3 bg-primary text-white font-bold text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[16px]">shopping_bag</span> ADD TO CART
-                        </button>
-</div>
-<div class="p-4 flex-grow flex flex-col">
-<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">Modern Royal</p>
-<h3 class="font-display font-bold text-primary mb-2 line-clamp-1">Brass Geometric Lamp</h3>
-<div class="flex items-center gap-2 mt-auto">
-<span class="text-xl font-bold text-primary">₹3,400</span>
-<span class="text-xs text-on-surface-variant line-through">₹4,530</span>
-</div>
-</div>
-</div>
-<!-- Product 5-8 (Repeated style for grid) -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover-lift shadow-sm flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<img alt="Temple Gold Earrings" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFBaB96QyV_FBW3-mcoyQybHlj_hy9NowiHqoa9dVHgIDtyjYbaGedAfOx-HILGw6GE9ZIxBr7ThqxVCQPeRCdvVJAa5Fqqxd6cWQXzaqorQrr_kinWnb25Bz68fWpdbX4XSCaeZmr_3IoRa8qtZw8_syShKm0rUzo9fnLTWJudBmd8q-HVMvbRCbBIit-SCYFMgHXRPFYgRsUnRsjcQ1dx9iqAttYcgy4VUpjYAlhzwzXsXp-UMO4MRZa9HjjGYTH8tcK_x5TBdY"/>
-<button class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] py-3 bg-primary text-white font-bold text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[16px]">shopping_bag</span> ADD TO CART
-                        </button>
-</div>
-<div class="p-4 flex-grow flex flex-col">
-<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">Limited Edition</p>
-<h3 class="font-display font-bold text-primary mb-2 line-clamp-1">Temple Gold Earrings</h3>
-<div class="flex items-center gap-2 mt-auto">
-<span class="text-xl font-bold text-primary">₹12,490</span>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover-lift shadow-sm flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<img alt="Teak Box" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFKpeRMsB7jQ89KZC-wp1-5y9dqyQVfAv0qBVepzls7znaEtwLwXK78AgJPTu2if01Q0DLkZvdoX_F7N6Di2ab3dJRZmVDrwAi8s-PdVzUJkfC05qz5fTZH5ZzUO2qr-dHFTMz1X9aEY0ldgBEUpY041tHVlDou0vuOldcrGlacBzlu9pS1pNTXf5NVN41fKcRTHkBqvQB2xgxlwqcN5mBTI-1HyYT2qwq7CxtFsvwfjKfTkKfqBFAj8UbXPkopGJmQ7ADm5lUe64"/>
-<button class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] py-3 bg-primary text-white font-bold text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[16px]">shopping_bag</span> ADD TO CART
-                        </button>
-</div>
-<div class="p-4 flex-grow flex flex-col">
-<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">Home &amp; Kitchen</p>
-<h3 class="font-display font-bold text-primary mb-2 line-clamp-1">Teak &amp; Brass Spice Box</h3>
-<div class="flex items-center gap-2 mt-auto">
-<span class="text-xl font-bold text-primary">₹2,800</span>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover-lift shadow-sm flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<img alt="Indigo Quilt" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbbnhBJ6vj9sgsf0do_VrJD6TYz7K4VF0NnbqYdnfMAZiWXuEkK4-IjnrOloyyN9kKwzwE_J7EOXAgKbcSKrW8l81TO8DpzudTIeTmC_viYQJ8mkpK0ZZr3OarRIf__MtJO0rOKYaAxHHnb3c7znzO6pmA-ufzEEOObwRvdlBLD1OEPol2Ly60jl5ULLoSoBcaqhtH_sgOcuv7Mu8CCcwTUDvnCMothCOgfwkhvkCWHmo7Jwd70voXTNNTBYH9KFDgim18FJ6s_cI"/>
-<button class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] py-3 bg-primary text-white font-bold text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[16px]">shopping_bag</span> ADD TO CART
-                        </button>
-</div>
-<div class="p-4 flex-grow flex flex-col">
-<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">Textiles</p>
-<h3 class="font-display font-bold text-primary mb-2 line-clamp-1">Indigo Hand-Block Quilt</h3>
-<div class="flex items-center gap-2 mt-auto">
-<span class="text-xl font-bold text-primary">₹6,200</span>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover-lift shadow-sm flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<div class="absolute top-3 left-3 z-10 bg-secondary text-white px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tighter shadow-sm">Popular</div>
-<img alt="Traditional Saree" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWNUUa-4_x1_fEQE4Kq3e0iENqXfJSms7WanRONn0mdx68nelPFARXRX_4RWNjcIbnmBFfXccupDQntv_F4Fn8paRbJPFKMBd0_tzh-6EULzYwl2dBDCfvIr6YH9WVKe-ZQ2bvDEGTd1Ud65ClmoBmMU6TXf8McFXp5H4oB31rHsM3dkRXRs_IdnnmJRrNpX9lfN-5jGTjCAZDbtS_Mo4hT0tyGorvvJ0j9xemkrcQlVuEQwZf8E9d-Oeuin43T_oIZyI-odtTOew"/>
-<button class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] py-3 bg-primary text-white font-bold text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[16px]">shopping_bag</span> ADD TO CART
-                        </button>
-</div>
-<div class="p-4 flex-grow flex flex-col">
-<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">Traditional</p>
-<h3 class="font-display font-bold text-primary mb-2 line-clamp-1">Embroidered Silk Saree</h3>
-<div class="flex items-center gap-2 mt-auto">
-<span class="text-xl font-bold text-primary">₹18,500</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 3. Flash Sale (Enhanced) -->
-<section class="py-lg md:py-xl bg-primary text-white overflow-hidden relative">
-<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-<span class="material-symbols-outlined text-[400px] absolute -right-20 -top-20">schedule</span>
-</div>
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-md relative z-10">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-8">
-<div class="max-w-2xl">
-<span class="bg-secondary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Urgent Sale</span>
-<h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">Midnight Royal Bazaar</h2>
-<p class="text-white/70 text-lg mt-4 font-light">Exclusive hourly discounts on our heritage collection. When the clock stops, the deals vanish.</p>
-</div>
-<div class="flex flex-col gap-3">
-<p class="text-secondary font-bold uppercase tracking-widest text-xs">Ends In:</p>
-<div class="flex gap-4">
+<div class="flex gap-4" id="countdown">
 <div class="flex flex-col items-center">
-<div class="bg-white/10 backdrop-blur-md border border-white/20 w-16 h-16 rounded-xl flex items-center justify-center text-3xl font-bold" id="flash-h">02</div>
+<div class="bg-white/10 backdrop-blur-md border border-white/20 w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-2xl font-bold" id="flash-h">02</div>
 <span class="text-[10px] uppercase font-bold mt-2 opacity-60">Hours</span>
 </div>
 <div class="flex flex-col items-center">
-<div class="bg-white/10 backdrop-blur-md border border-white/20 w-16 h-16 rounded-xl flex items-center justify-center text-3xl font-bold" id="flash-m">45</div>
+<div class="bg-white/10 backdrop-blur-md border border-white/20 w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-2xl font-bold" id="flash-m">45</div>
 <span class="text-[10px] uppercase font-bold mt-2 opacity-60">Mins</span>
 </div>
 <div class="flex flex-col items-center">
-<div class="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-3xl font-bold shadow-lg shadow-secondary/20" id="flash-s">12</div>
+<div class="bg-secondary w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg shadow-secondary/20" id="flash-s">12</div>
 <span class="text-[10px] uppercase font-bold mt-2 opacity-60">Secs</span>
 </div>
 </div>
 </div>
-</div>
-<!-- Horizontal scroll flash items -->
 <div class="flex overflow-x-auto no-scrollbar gap-gutter pb-4">
-<!-- Flash Card 1 -->
-<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl p-4 text-primary group">
+<!-- Flash Item Cards -->
+<div class="min-w-[260px] md:min-w-[300px] bg-white rounded-2xl p-4 text-primary group shrink-0">
 <div class="relative rounded-xl overflow-hidden aspect-square mb-4">
-<img alt="Flash Item 1" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmoD5w8irRRvyrIJvZTj-xsCE-whs-M1jgH523454UktLWrmdyOmafKGmHLup3LV1spClPrG6DoON9s1J0vfj8h7vJSRlzHF8Uyc8QncWBw0GbG95r1HqT-yKskTc-JogEhhQmtYz7SyomVsPQNeQCqiw6RsiLk5gm1Ggui0bhb5GApvpwKMgG2-P4gme8YklHNLIVuYAIHbtqtwk7R-U6Rpzo3bFXw1_HaO4M8t6gF-Dpq3NvPnhqrphXUTDoTH1k5iE8IKDcMsI"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-<div class="absolute bottom-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">50% OFF</div>
+<img alt="Flash Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmoD5w8irRRvyrIJvZTj-xsCE-whs-M1jgH523454UktLWrmdyOmafKGmHLup3LV1spClPrG6DoON9s1J0vfj8h7vJSRlzHF8Uyc8QncWBw0GbG95r1HqT-yKskTc-JogEhhQmtYz7SyomVsPQNeQCqiw6RsiLk5gm1Ggui0bhb5GApvpwKMgG2-P4gme8YklHNLIVuYAIHbtqtwk7R-U6Rpzo3bFXw1_HaO4M8t6gF-Dpq3NvPnhqrphXUTDoTH1k5iE8IKDcMsI"/>
+<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">60% OFF</div>
 </div>
-<h3 class="font-bold text-lg mb-2">Artisanal Cushion Set</h3>
-<div class="flex items-center gap-3">
-<span class="text-xl font-bold text-secondary">₹1,999</span>
+<h3 class="font-bold text-base mb-2">Heritage Cotton Quilt</h3>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-lg font-bold text-secondary">₹1,599</span>
 <span class="text-sm line-through opacity-40">₹3,999</span>
 </div>
-<button class="w-full mt-4 py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary transition-colors">GRAB NOW</button>
+<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm hover:bg-secondary transition-colors">GRAB NOW</button>
 </div>
-<!-- Card 2 -->
-<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl p-4 text-primary group">
+<!-- More Items Repeatable -->
+<div class="min-w-[260px] md:min-w-[300px] bg-white rounded-2xl p-4 text-primary group shrink-0">
 <div class="relative rounded-xl overflow-hidden aspect-square mb-4">
-<img alt="Flash Item 2" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFBaB96QyV_FBW3-mcoyQybHlj_hy9NowiHqoa9dVHgIDtyjYbaGedAfOx-HILGw6GE9ZIxBr7ThqxVCQPeRCdvVJAa5Fqqxd6cWQXzaqorQrr_kinWnb25Bz68fWpdbX4XSCaeZmr_3IoRa8qtZw8_syShKm0rUzo9fnLTWJudBmd8q-HVMvbRCbBIit-SCYFMgHXRPFYgRsUnRsjcQ1dx9iqAttYcgy4VUpjYAlhzwzXsXp-UMO4MRZa9HjjGYTH8tcK_x5TBdY"/>
-<div class="absolute bottom-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">30% OFF</div>
+<img alt="Flash Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcEL3Z_4g2j3TmlEc-Pv9xzuNOcbhx_6gWH2wiRrfywdc07_e0RqrOO8ol1rXPb2BDuLpWapdBEaFeeDjSHLGU1uNZdkV7za7P2wSrqjdUh61HoSM57mmXTNvtN1NIqhW5A2y5gER1eLyFU9UJikfwZ5DZPfZLYvV5_Wjo_xmDSZ3vij0J6u6G6-9PDoL50BP9I1tbdfmPmd4JqfJ1v02BNXX1D_66PLJn6nmZHUqF7SaK9NCL_zCU2O9WbiRMFVF4JyUo3uxhLd8"/>
+<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">40% OFF</div>
 </div>
-<h3 class="font-bold text-lg mb-2">Heritage Jhumkas</h3>
-<div class="flex items-center gap-3">
-<span class="text-xl font-bold text-secondary">₹8,740</span>
-<span class="text-sm line-through opacity-40">₹12,490</span>
+<h3 class="font-bold text-base mb-2">Silver Topaz Ring</h3>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-lg font-bold text-secondary">₹2,999</span>
+<span class="text-sm line-through opacity-40">₹4,999</span>
 </div>
-<button class="w-full mt-4 py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary transition-colors">GRAB NOW</button>
+<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm hover:bg-secondary transition-colors">GRAB NOW</button>
 </div>
-<!-- Card 3 -->
-<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl p-4 text-primary group">
+<div class="min-w-[260px] md:min-w-[300px] bg-white rounded-2xl p-4 text-primary group shrink-0">
 <div class="relative rounded-xl overflow-hidden aspect-square mb-4">
-<img alt="Flash Item 3" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtJEUIiULtnzt38aGP27sNV55x_s8saS-H80fotL3ZuH2yzOxW7Llt8sNcdOiZb1SZez1qrmQ4lNH1xnWWoqU0_vMS0Rzy0oBbl50pGlCjBCyqg3LhZEfvSJVdTG46cAk6LMPGTTlI62V15fKqQlzEvzM_QIH-XD4LUfr7lBW2KzG5tEELqq-1WxufkJAAJp6FF2MwSYLQjN2R09rAHnJ7BPs5Wt1BHCqASQ1X6n6ko9teVBYX2u2hqNVkcs7LwAiiY2aKJtkC8cI"/>
-<div class="absolute bottom-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">40% OFF</div>
+<img alt="Flash Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtJEUIiULtnzt38aGP27sNV55x_s8saS-H80fotL3ZuH2yzOxW7Llt8sNcdOiZb1SZez1qrmQ4lNH1xnWWoqU0_vMS0Rzy0oBbl50pGlCjBCyqg3LhZEfvSJVdTG46cAk6LMPGTTlI62V15fKqQlzEvzM_QIH-XD4LUfr7lBW2KzG5tEELqq-1WxufkJAAJp6FF2MwSYLQjN2R09rAHnJ7BPs5Wt1BHCqASQ1X6n6ko9teVBYX2u2hqNVkcs7LwAiiY2aKJtkC8cI"/>
+<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">50% OFF</div>
 </div>
-<h3 class="font-bold text-lg mb-2">Organic Spice Box</h3>
-<div class="flex items-center gap-3">
-<span class="text-xl font-bold text-secondary">₹880</span>
+<h3 class="font-bold text-base mb-2">Kashmiri Saffron Pack</h3>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-lg font-bold text-secondary">₹735</span>
 <span class="text-sm line-through opacity-40">₹1,470</span>
 </div>
-<button class="w-full mt-4 py-3 bg-primary text-white rounded-lg font-bold hover:bg-secondary transition-colors">GRAB NOW</button>
+<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm hover:bg-secondary transition-colors">GRAB NOW</button>
+</div>
+<div class="min-w-[260px] md:min-w-[300px] bg-white rounded-2xl p-4 text-primary group shrink-0">
+<div class="relative rounded-xl overflow-hidden aspect-square mb-4">
+<img alt="Flash Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFBaB96QyV_FBW3-mcoyQybHlj_hy9NowiHqoa9dVHgIDtyjYbaGedAfOx-HILGw6GE9ZIxBr7ThqxVCQPeRCdvVJAa5Fqqxd6cWQXzaqorQrr_kinWnb25Bz68fWpdbX4XSCaeZmr_3IoRa8qtZw8_syShKm0rUzo9fnLTWJudBmd8q-HVMvbRCbBIit-SCYFMgHXRPFYgRsUnRsjcQ1dx9iqAttYcgy4VUpjYAlhzwzXsXp-UMO4MRZa9HjjGYTH8tcK_x5TBdY"/>
+<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">30% OFF</div>
+</div>
+<h3 class="font-bold text-base mb-2">Temple Gold Earrings</h3>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-lg font-bold text-secondary">₹8,740</span>
+<span class="text-sm line-through opacity-40">₹12,490</span>
+</div>
+<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm hover:bg-secondary transition-colors">GRAB NOW</button>
 </div>
 </div>
 </div>
 </section>
-<!-- 4. Best Selling Products (Bento Grid) -->
-<section class="py-lg md:py-xl bg-white">
+<!-- Featured Products Section -->
+<section class="py-12 md:py-xl bg-surface-container-low">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-md">
-<div class="text-center mb-xl">
-<h2 class="font-display text-4xl text-primary font-bold mb-4">Our Best Sellers</h2>
-<p class="text-on-surface-variant max-w-xl mx-auto">The most coveted pieces from across the subcontinent, loved by collectors worldwide.</p>
+<div class="flex items-center justify-between mb-10">
+<h2 class="font-display text-2xl md:text-3xl text-primary font-bold">Featured Products</h2>
+<a class="text-secondary font-bold hover:gap-2 flex items-center transition-all" href="#">
+                    View All <span class="material-symbols-outlined ml-1">east</span>
+</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-gutter h-auto md:h-[800px]">
-<div class="md:col-span-2 md:row-span-2 group bg-primary rounded-3xl overflow-hidden relative shadow-xl hover-lift">
-<img alt="Hero Item" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmoD5w8irRRvyrIJvZTj-xsCE-whs-M1jgH523454UktLWrmdyOmafKGmHLup3LV1spClPrG6DoON9s1J0vfj8h7vJSRlzHF8Uyc8QncWBw0GbG95r1HqT-yKskTc-JogEhhQmtYz7SyomVsPQNeQCqiw6RsiLk5gm1Ggui0bhb5GApvpwKMgG2-P4gme8YklHNLIVuYAIHbtqtwk7R-U6Rpzo3bFXw1_HaO4M8t6gF-Dpq3NvPnhqrphXUTDoTH1k5iE8IKDcMsI"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent flex flex-col justify-end p-8 md:p-12 text-white">
-<span class="text-secondary font-bold uppercase tracking-widest text-sm mb-4">Signature Series</span>
-<h3 class="font-display text-4xl md:text-5xl font-bold mb-6">The Royal Heritage Living Set</h3>
-<p class="text-white/80 font-light text-lg mb-8 max-w-md">Our most exclusive curated set for modern luxury homes, featuring master-crafted artisans' work from Jaipur and Varanasi.</p>
-<button class="w-fit px-10 py-4 bg-secondary text-white font-bold rounded-lg shadow-lg hover:scale-105 transition-transform">EXPLORE THE SET</button>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-gutter">
+<!-- Product Template (Repeated 12 times with different data) -->
+<!-- P1 -->
+<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 shadow-sm hover-lift flex flex-col">
+<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
+<div class="absolute top-2 left-2 z-10 bg-primary text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">-20%</div>
+<img alt="Product" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcEL3Z_4g2j3TmlEc-Pv9xzuNOcbhx_6gWH2wiRrfywdc07_e0RqrOO8ol1rXPb2BDuLpWapdBEaFeeDjSHLGU1uNZdkV7za7P2wSrqjdUh61HoSM57mmXTNvtN1NIqhW5A2y5gER1eLyFU9UJikfwZ5DZPfZLYvV5_Wjo_xmDSZ3vij0J6u6G6-9PDoL50BP9I1tbdfmPmd4JqfJ1v02BNXX1D_66PLJn6nmZHUqF7SaK9NCL_zCU2O9WbiRMFVF4JyUo3uxhLd8"/>
 </div>
-</div>
-<div class="md:col-span-2 group bg-surface-container rounded-3xl overflow-hidden relative shadow-md hover-lift h-64 md:h-full">
-<div class="flex h-full">
-<div class="w-1/2 p-8 flex flex-col justify-center">
-<span class="text-secondary font-bold uppercase tracking-widest text-[10px] mb-2">Trending Now</span>
-<h3 class="font-display text-2xl text-primary font-bold mb-4">Temple Gold Ornaments</h3>
-<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">22k Gold plated, traditional South Indian craftsmanship reimagined for the modern woman.</p>
-<span class="text-2xl font-bold text-primary">₹12,490</span>
-</div>
-<div class="w-1/2 overflow-hidden">
-<img alt="Trending Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFBaB96QyV_FBW3-mcoyQybHlj_hy9NowiHqoa9dVHgIDtyjYbaGedAfOx-HILGw6GE9ZIxBr7ThqxVCQPeRCdvVJAa5Fqqxd6cWQXzaqorQrr_kinWnb25Bz68fWpdbX4XSCaeZmr_3IoRa8qtZw8_syShKm0rUzo9fnLTWJudBmd8q-HVMvbRCbBIit-SCYFMgHXRPFYgRsUnRsjcQ1dx9iqAttYcgy4VUpjYAlhzwzXsXp-UMO4MRZa9HjjGYTH8tcK_x5TBdY"/>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-3xl overflow-hidden border border-outline-variant/30 shadow-sm hover-lift">
-<div class="h-1/2 overflow-hidden bg-surface-container">
-<img alt="Bento 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFKpeRMsB7jQ89KZC-wp1-5y9dqyQVfAv0qBVepzls7znaEtwLwXK78AgJPTu2if01Q0DLkZvdoX_F7N6Di2ab3dJRZmVDrwAi8s-PdVzUJkfC05qz5fTZH5ZzUO2qr-dHFTMz1X9aEY0ldgBEUpY041tHVlDou0vuOldcrGlacBzlu9pS1pNTXf5NVN41fKcRTHkBqvQB2xgxlwqcN5mBTI-1HyYT2qwq7CxtFsvwfjKfTkKfqBFAj8UbXPkopGJmQ7ADm5lUe64"/>
-</div>
-<div class="p-6">
-<h3 class="font-bold text-primary">Teak &amp; Brass Box</h3>
-<div class="flex justify-between items-center mt-2">
-<span class="font-bold text-secondary">₹2,800</span>
-<span class="text-xs font-bold bg-primary/5 text-primary px-2 py-1 rounded">4.9 ★</span>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-3xl overflow-hidden border border-outline-variant/30 shadow-sm hover-lift">
-<div class="h-1/2 overflow-hidden bg-surface-container">
-<img alt="Bento 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbbnhBJ6vj9sgsf0do_VrJD6TYz7K4VF0NnbqYdnfMAZiWXuEkK4-IjnrOloyyN9kKwzwE_J7EOXAgKbcSKrW8l81TO8DpzudTIeTmC_viYQJ8mkpK0ZZr3OarRIf__MtJO0rOKYaAxHHnb3c7znzO6pmA-ufzEEOObwRvdlBLD1OEPol2Ly60jl5ULLoSoBcaqhtH_sgOcuv7Mu8CCcwTUDvnCMothCOgfwkhvkCWHmo7Jwd70voXTNNTBYH9KFDgim18FJ6s_cI"/>
-</div>
-<div class="p-6">
-<h3 class="font-bold text-primary">Indigo Hand-Block</h3>
-<div class="flex justify-between items-center mt-2">
-<span class="font-bold text-secondary">₹6,200</span>
-<span class="text-xs font-bold bg-primary/5 text-primary px-2 py-1 rounded">4.8 ★</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 5. Customer Reviews (Expanded to 6) -->
-<section class="py-lg md:py-xl bg-surface-container-low">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-md">
-<div class="text-center mb-xl">
-<h2 class="font-display text-4xl text-primary font-bold mb-4">Trusted by Connoisseurs</h2>
-<p class="text-on-surface-variant max-w-xl mx-auto">Discover why our community of collectors and home decorators trust Ravi Store for their heritage needs.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-<!-- Review 1 -->
-<div class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/20">
-<div class="flex gap-1 text-secondary mb-6">
-<span class="material-symbols-outlined fill-1">star</span><span class="material-symbols-outlined fill-1">star</span><span class="material-symbols-outlined fill-1">star</span></div></div></div></div></section></main></body></html>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex gap-0.5 text-secondary mb-1">
+<span class="material-symbols-outlined text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-[14px] fill-1">star</span></div></div></div></div></div></section></main></body></html>

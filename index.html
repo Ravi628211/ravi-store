@@ -1,300 +1,337 @@
-<html class="light" lang="en"><head></head><body class="bg-background text-on-surface font-body selection:bg-secondary selection:text-white overflow-x-hidden">```html
+<!DOCTYPE html>
 
-
-    <meta charset="utf-8"/>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ravi Store | Premium Heritage Marketplace</title>
+<title>Order Confirmation | Ravi Store</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Config -->
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "primary": "#002366",
-                        "primary-container": "#002366",
-                        "secondary": "#fd8b00",
-                        "on-primary": "#ffffff",
-                        "on-secondary": "#ffffff",
-                        "background": "#fcf8f9",
-                        "surface": "#ffffff",
-                        "outline": "#757682",
-                        "outline-variant": "#c5c6d2",
-                        "surface-container": "#f0edee",
-                        "surface-container-low": "#f6f3f4",
-                        "surface-container-high": "#eae7e8",
-                        "on-surface": "#1b1b1c",
-                        "on-surface-variant": "#444650"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "2xl": "1.5rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-mobile": "16px",
-                        "md": "24px",
-                        "xs": "4px",
-                        "lg": "48px",
-                        "container-max": "1280px",
-                        "base": "8px",
-                        "sm": "12px",
-                        "xl": "80px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "display": ["Montserrat", "sans-serif"],
-                        "body": ["Inter", "sans-serif"]
-                    }
-                }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdcc3",
+                    "tertiary": "#101517",
+                    "primary-container": "#002366",
+                    "surface-container-highest": "#e5e2e3",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#25292b",
+                    "on-tertiary-fixed-variant": "#43474a",
+                    "on-primary-fixed-variant": "#2a4386",
+                    "surface-dim": "#dcd9da",
+                    "on-secondary-container": "#603100",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fcf8f9",
+                    "surface": "#fcf8f9",
+                    "secondary-fixed-dim": "#ffb77d",
+                    "tertiary-fixed": "#e0e3e6",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#2f1500",
+                    "surface-container": "#f0edee",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c3c7ca",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#181c1e",
+                    "on-primary-container": "#758dd5",
+                    "surface-tint": "#435b9f",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e5e2e3",
+                    "secondary-container": "#fd8b00",
+                    "inverse-primary": "#b3c5ff",
+                    "outline-variant": "#c5c6d2",
+                    "inverse-on-surface": "#f3f0f1",
+                    "on-surface-variant": "#444650",
+                    "on-primary-fixed": "#00174a",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#303031",
+                    "on-background": "#1b1b1c",
+                    "surface-container-high": "#eae7e8",
+                    "primary-fixed": "#dbe1ff",
+                    "primary": "#00113a",
+                    "on-tertiary-container": "#8c9093",
+                    "on-surface": "#1b1b1c",
+                    "outline": "#757682",
+                    "surface-container-low": "#f6f3f4",
+                    "secondary": "#904d00",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "background": "#fcf8f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "xl": "80px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "price-lg": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "price-lg": ["22px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["26px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
             }
-        }
+          },
+        },
+      }
     </script>
 <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .material-symbols-outlined.fill-1 { font-variation-settings: 'FILL' 1; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .hover-lift:hover { transform: translateY(-8px); }
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
-        .marquee { overflow: hidden; white-space: nowrap; }
-        .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
         }
     </style>
-<!-- Header Section -->
-<header class="fixed top-0 w-full z-50 bg-white shadow-sm transition-all duration-300" id="main-header">
-<!-- Top Bar -->
-<div class="h-16 md:h-20 border-b border-outline-variant/30">
-<div class="max-w-container-max mx-auto w-full h-full px-margin-mobile md:px-md flex items-center justify-between gap-gutter">
-<div class="flex items-center gap-4 shrink-0">
-<button class="lg:hidden p-2 active:scale-95 transition-transform">
-<span class="material-symbols-outlined text-primary">menu</span>
-</button>
-<img alt="Ravi Store Logo" class="h-8 md:h-10" src="https://lh3.googleusercontent.com/aida/AP1WRLtfWkg_BKfV2OKgZOEFnOTVPDUA6YznZZVOMqsmFkh9qpvqWy_MQIwLXz1st4o72Hnr_CPdZmREuBbDKXWeAOcjqb_a-MRQ5SJUC2Vx-MRGgy8VJgAaxVT0Rtfq4H62MFpJBVO40RIcU6WDyrmqPB--iOZ8mkI8-eKP_Hk3SfaA0bnawpqYpI4eoIS6OX034FJ2LvcimhNVRfwHWhGz0UJQb3f9brOIU3Ta-C3m7HpYZ111vyK_OOzPmf4"/>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm">
+<div class="flex items-center justify-between px-margin-mobile md:px-md py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary active:scale-95 duration-150">menu</button>
+<span class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim">Ravi Store</span>
 </div>
-<div class="hidden lg:flex flex-grow max-w-2xl relative group">
-<input class="w-full bg-surface-container border border-outline-variant rounded-xl py-2.5 px-12 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-on-surface-variant/60" placeholder="Search for products, brands and more..." type="text"/>
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary">search</span>
-</div>
-<div class="flex items-center gap-2 md:gap-6 shrink-0">
-<button class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined">person</span>
-<span class="hidden md:block text-[10px] font-bold mt-1 uppercase">Account</span>
-</button>
-<button class="hidden sm:flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors relative">
-<span class="material-symbols-outlined">favorite</span>
-<span class="hidden md:block text-[10px] font-bold mt-1 uppercase">Wishlist</span>
-<span class="absolute top-1 right-1 md:right-2 bg-secondary text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
-</button>
-<button class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors relative">
-<span class="material-symbols-outlined">shopping_cart</span>
-<span class="hidden md:block text-[10px] font-bold mt-1 uppercase">Cart</span>
-<span class="absolute top-1 right-1 md:right-0 bg-secondary text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">5</span>
-</button>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors active:scale-95 duration-150">shopping_cart</button>
 </div>
 </div>
-</div>
-<!-- Navigation Links -->
-<nav class="hidden lg:block bg-white h-12 border-b border-outline-variant/20 shadow-sm">
-<div class="max-w-container-max mx-auto px-md h-full flex items-center justify-center gap-10">
-<a class="text-sm font-bold text-primary hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Home</a>
-<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Categories</a>
-<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Today's Deals</a>
-<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">New Arrivals</a>
-<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Best Sellers</a>
-<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors border-b-2 border-transparent hover:border-secondary py-1" href="#">Contact</a>
-</div>
-</nav>
 </header>
-<main class="mt-[64px] md:mt-[80px] lg:mt-[128px]">
-<!-- Hero Section -->
-<section class="relative h-[50vh] md:h-[70vh] overflow-hidden bg-primary">
-<div class="relative h-full max-w-container-max mx-auto px-margin-mobile md:px-md flex items-center">
-<div class="w-full md:w-3/5 space-y-6 md:space-y-8 z-10 animate-fade-in-up">
-<span class="inline-block px-4 py-1.5 bg-secondary/20 text-secondary font-bold text-xs rounded-full border border-secondary/30 uppercase tracking-widest">Imperial Heritage Collection</span>
-<h1 class="font-display text-[32px] md:text-6xl text-white leading-tight font-bold">
-                    Timeless Elegance, <br/>Modern Indian Crafts.
-                </h1>
-<p class="text-base md:text-xl text-white/80 max-w-lg font-light">
-                    Experience a curated marketplace of premium apparel, handcrafted jewelry, and royal home decor from the heart of India.
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-xl px-margin-mobile">
+<div class="max-w-[800px] mx-auto text-center">
+<!-- Success Animation / Graphic -->
+<div class="relative mb-8 inline-block">
+<div class="absolute inset-0 bg-secondary-container opacity-20 blur-3xl rounded-full transform scale-150"></div>
+<div class="relative w-32 h-32 md:w-48 md:h-48 bg-surface-container-lowest rounded-full shadow-lg flex items-center justify-center border border-outline-variant mx-auto overflow-hidden">
+<span class="material-symbols-outlined text-[64px] md:text-[96px] text-secondary animate-bounce" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Headlines -->
+<div class="space-y-4 mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-primary">Thank You for Your Order!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] mx-auto">
+                    Namaste! We've received your request and our artisans are beginning to curate your selection with the utmost care.
                 </p>
-<div class="flex flex-wrap gap-4 pt-2 md:pt-4">
-<button class="px-8 md:px-10 py-3 md:py-4 bg-secondary text-white font-bold rounded-lg shadow-lg hover:shadow-secondary/20 hover:scale-105 transition-all flex items-center gap-2">
-                        SHOP NOW
-                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</button>
-<button class="px-8 md:px-10 py-3 md:py-4 bg-transparent border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 transition-all">
-                        EXPLORE
-                    </button>
+<div class="inline-flex items-center bg-primary-container px-4 py-2 rounded-lg mt-4">
+<span class="text-on-primary-container font-bold font-label-md">Order ID: #RAVI-89234</span>
 </div>
 </div>
-<div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-2/5 h-[90%] pointer-events-none">
-<div class="relative w-full h-full rounded-l-[100px] overflow-hidden shadow-2xl">
-<img alt="Indian Premium Heritage" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-M9eXgYI8398ojnOUePh9yMBanx8PZHgi_8QzUklkb--qNdxWW_7-N4nEMhg6O0W8LaIEtNaD23-O5pzIeaCxTe3V_l3NE20yioEx_ySbn2l-dbQpk-P6m6ymRw-nhuM18gmUgGT6RYJ87EsCgCSpNgmFo15XVcb7qqJ1f06y_OS-JDW9LfBBYFM0j8gyaiursYcAfNT92t62R6u7FK_2csFJUlHhAAeucnjSgLCy_ztCzyQso1wbIUiwdSp5CtJlZug84RalyVM"/>
+<!-- Order Confirmation Details Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter text-left">
+<!-- Delivery Details -->
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-4 text-primary">
+<span class="material-symbols-outlined">local_shipping</span>
+<h3 class="font-headline-md text-headline-md">Delivery Details</h3>
 </div>
-</div>
-</div>
-</section>
-<!-- Categories Section -->
-<section class="py-12 md:py-xl bg-white">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-md text-center">
-<h2 class="font-display text-2xl md:text-3xl text-primary font-bold mb-10">Shop by Category</h2>
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
-<!-- 1. Clothes -->
-<a class="group flex flex-col items-center gap-4" href="#">
-<div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Clothes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWNUUa-4_x1_fEQE4Kq3e0iENqXfJSms7WanRONn0mdx68nelPFARXRX_4RWNjcIbnmBFfXccupDQntv_F4Fn8paRbJPFKMBd0_tzh-6EULzYwl2dBDCfvIr6YH9WVKe-ZQ2bvDEGTd1Ud65ClmoBmMU6TXf8McFXp5H4oB31rHsM3dkRXRs_IdnnmJRrNpX9lfN-5jGTjCAZDbtS_Mo4hT0tyGorvvJ0j9xemkrcQlVuEQwZf8E9d-Oeuin43T_oIZyI-odtTOew"/>
-</div>
-<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Clothes</span>
-</a>
-<!-- 2. Shoes -->
-<a class="group flex flex-col items-center gap-4" href="#">
-<div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Shoes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC10XqI9u6O7l3NfO2v7g7p1y7lZ_4Z8p9o9e9r9s9t9u9v9w9x9y9z9A9B9C9D9E9F9G9H9I9J9K9L9M9N9O9P9Q9R9S9T9U9V9W9X9Y9Z"/>
-<img alt="Shoes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzyFoJFBwkDc-f_BroaYQ_dSVvkjPwafLd8SixqmmMn0PCHeA0-b4A0Bjz4EIfyUBPuMjScM_4lGgM37TTHY621pK7pFEO1DiI69G5amX9NUIW6YcFp44DTcbQhQjtXzViRjrf7k7a9h5aDHSrARsDSGMMD-VkvC7bgMhnN607pvcLvl88EBUnHu6pIw1c456eK6tVV5BIoiFRCT_sE8PB9GXQo7l-oxVM5GVmqWGozzRWmDrwjMW17KFDUAk6Qy4YSLDC_7SGtX4"/>
-</div>
-<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Shoes</span>
-</a>
-<!-- 3. Mobile Accessories -->
-<a class="group flex flex-col items-center gap-4" href="#">
-<div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Mobile Accessories" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB68zRNs4ytxNaOxFzd1HXpCF85XOLeQDHFtL7huI4UTN49KUA90SYx3cBWb1wEgL49aHUYf8dcS6AKzcJ0kKdL_mi6Rm7QeVnvmFOaUwHO_H7-kpDo1vvD7uHnDLYPhM_CY8bxnJ4M8P0fPQrhfgx9Iigx0wjhzwjFs46orIBENlN6sKwAYUIbsrH61fA84-VAJsgrrvehqPDRUApfY89Nl0kGDpG8W67WoNdKqZZzbFFE2lXL6bH1XyHnsz_Fbl6lBDyKGUwkms"/>
-</div>
-<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Accessories</span>
-</a>
-<!-- 4. Electronics -->
-<a class="group flex flex-col items-center gap-4" href="#">
-<div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Electronics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiFoBIz5qoZXIYenraPspZQbsqKm52b-styu4emxzQ5aKXX7bOEDRlg_M2uqk3bMdCorpNXwI6tN320M3SFimbq0itBwLv9tgHaCIyzvSsVbLIbv-S-ZLPc6s-qRTpby3eTZbFwgHP0pImlOsVUc1HW72sU2b96MG6aSxhvvF8gWA49N0IH49oTo4fM6_0sB_0etIPnMlPUF-xr8oz0enGfXlp6JyrXzvFPr8V-T7QmpfjvoPw8T5LmPWeW3baA4oGZNIVj_U_IO4"/>
-</div>
-<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Electronics</span>
-</a>
-<!-- 5. Home & Kitchen -->
-<a class="group flex flex-col items-center gap-4" href="#">
-<div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Home &amp; Kitchen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFKpeRMsB7jQ89KZC-wp1-5y9dqyQVfAv0qBVepzls7znaEtwLwXK78AgJPTu2if01Q0DLkZvdoX_F7N6Di2ab3dJRZmVDrwAi8s-PdVzUJkfC05qz5fTZH5ZzUO2qr-dHFTMz1X9aEY0ldgBEUpY041tHVlDou0vuOldcrGlacBzlu9pS1pNTXf5NVN41fKcRTHkBqvQB2xgxlwqcN5mBTI-1HyYT2qwq7CxtFsvwfjKfTkKfqBFAj8UbXPkopGJmQ7ADm5lUe64"/>
-</div>
-<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Home &amp; Kitchen</span>
-</a>
-<!-- 6. Beauty -->
-<a class="group flex flex-col items-center gap-4" href="#">
-<div class="w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-low border border-outline-variant/30 hover-lift relative shadow-sm">
-<img alt="Beauty" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXUo2wkNznl3_ratcURcG1a0grT6v9F_IKq8A-mdKzeLQHfcHKa2JTlthY0RqZ-8uYRHsNnkQT-nAziR1-uieOX5xZDvQJF1t4xJ0779J2FGeWts-s1sWIydx18zkNO7BM7lopWtgPZC4htvZZHx5IA1fueEZQYB1bnmKfCYXviqE2Wjstd2N2suteOljtIlT27qzKMHqT5zyD6kuVa-wuyiHuNnBtsZznDICWq5LvOnKB75B7EMZ4oCyTn2iV5CpSza1nDwcDeug"/>
-</div>
-<span class="font-bold text-primary uppercase tracking-wider text-xs md:text-sm">Beauty</span>
-</a>
-</div>
-</div>
-</section>
-<!-- Flash Sale Section -->
-<section class="py-12 md:py-xl bg-primary text-white relative overflow-hidden">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-md">
-<div class="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
-<div class="text-center md:text-left">
-<span class="bg-secondary text-white px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-3 inline-block">Flash Sale</span>
-<h2 class="font-display text-3xl md:text-4xl font-bold">The Royal Bazaar Deals</h2>
-<p class="text-white/70 mt-2">Ends in:</p>
-</div>
-<div class="flex gap-4" id="countdown">
-<div class="flex flex-col items-center">
-<div class="bg-white/10 backdrop-blur-md border border-white/20 w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-2xl font-bold" id="flash-h">02</div>
-<span class="text-[10px] uppercase font-bold mt-2 opacity-60">Hours</span>
-</div>
-<div class="flex flex-col items-center">
-<div class="bg-white/10 backdrop-blur-md border border-white/20 w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-2xl font-bold" id="flash-m">45</div>
-<span class="text-[10px] uppercase font-bold mt-2 opacity-60">Mins</span>
-</div>
-<div class="flex flex-col items-center">
-<div class="bg-secondary w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg shadow-secondary/20" id="flash-s">12</div>
-<span class="text-[10px] uppercase font-bold mt-2 opacity-60">Secs</span>
+<div class="space-y-2 text-on-surface-variant">
+<p class="font-bold text-on-surface">Arjun Sharma</p>
+<p>123 Royal Residency, MG Road</p>
+<p>Bangalore, Karnataka - 560001</p>
+<p>India</p>
+<div class="pt-4 border-t border-outline-variant mt-4">
+<p class="text-body-sm italic">Standard Shipping: 3-5 Business Days</p>
 </div>
 </div>
 </div>
-<div class="flex overflow-x-auto no-scrollbar gap-gutter pb-4">
-<!-- Flash Item Cards -->
-<div class="min-w-[260px] md:min-w-[300px] bg-white rounded-2xl p-4 text-primary group shrink-0">
-<div class="relative rounded-xl overflow-hidden aspect-square mb-4">
-<img alt="Flash Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmoD5w8irRRvyrIJvZTj-xsCE-whs-M1jgH523454UktLWrmdyOmafKGmHLup3LV1spClPrG6DoON9s1J0vfj8h7vJSRlzHF8Uyc8QncWBw0GbG95r1HqT-yKskTc-JogEhhQmtYz7SyomVsPQNeQCqiw6RsiLk5gm1Ggui0bhb5GApvpwKMgG2-P4gme8YklHNLIVuYAIHbtqtwk7R-U6Rpzo3bFXw1_HaO4M8t6gF-Dpq3NvPnhqrphXUTDoTH1k5iE8IKDcMsI"/>
-<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">60% OFF</div>
+<!-- Estimated Arrival & Summary -->
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-4 text-secondary">
+<span class="material-symbols-outlined">calendar_today</span>
+<h3 class="font-headline-md text-headline-md">Arrival Time</h3>
 </div>
-<h3 class="font-bold text-base mb-2">Heritage Cotton Quilt</h3>
-<div class="flex items-center gap-2 mb-4">
-<span class="text-lg font-bold text-secondary">₹1,599</span>
-<span class="text-sm line-through opacity-40">₹3,999</span>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-body-sm text-on-surface-variant">Expected by</p>
+<p class="font-headline-md text-headline-md text-on-surface">Friday, Nov 15th</p>
 </div>
-<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm hover:bg-secondary transition-colors">GRAB NOW</button>
+<span class="material-symbols-outlined text-4xl text-outline-variant">package_2</span>
 </div>
-<!-- More Items Repeatable -->
-<div class="min-w-[260px] md:min-w-[300px] bg-white rounded-2xl p-4 text-primary group shrink-0">
-<div class="relative rounded-xl overflow-hidden aspect-square mb-4">
-<img alt="Flash Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcEL3Z_4g2j3TmlEc-Pv9xzuNOcbhx_6gWH2wiRrfywdc07_e0RqrOO8ol1rXPb2BDuLpWapdBEaFeeDjSHLGU1uNZdkV7za7P2wSrqjdUh61HoSM57mmXTNvtN1NIqhW5A2y5gER1eLyFU9UJikfwZ5DZPfZLYvV5_Wjo_xmDSZ3vij0J6u6G6-9PDoL50BP9I1tbdfmPmd4JqfJ1v02BNXX1D_66PLJn6nmZHUqF7SaK9NCL_zCU2O9WbiRMFVF4JyUo3uxhLd8"/>
-<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">40% OFF</div>
+<div class="space-y-2 pt-4 border-t border-outline-variant">
+<div class="flex justify-between text-body-sm">
+<span>Subtotal (3 items)</span>
+<span>₹12,499.00</span>
 </div>
-<h3 class="font-bold text-base mb-2">Silver Topaz Ring</h3>
-<div class="flex items-center gap-2 mb-4">
-<span class="text-lg font-bold text-secondary">₹2,999</span>
-<span class="text-sm line-through opacity-40">₹4,999</span>
-</div>
-<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm hover:bg-secondary transition-colors">GRAB NOW</button>
-</div>
-<div class="min-w-[260px] md:min-w-[300px] bg-white rounded-2xl p-4 text-primary group shrink-0">
-<div class="relative rounded-xl overflow-hidden aspect-square mb-4">
-<img alt="Flash Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtJEUIiULtnzt38aGP27sNV55x_s8saS-H80fotL3ZuH2yzOxW7Llt8sNcdOiZb1SZez1qrmQ4lNH1xnWWoqU0_vMS0Rzy0oBbl50pGlCjBCyqg3LhZEfvSJVdTG46cAk6LMPGTTlI62V15fKqQlzEvzM_QIH-XD4LUfr7lBW2KzG5tEELqq-1WxufkJAAJp6FF2MwSYLQjN2R09rAHnJ7BPs5Wt1BHCqASQ1X6n6ko9teVBYX2u2hqNVkcs7LwAiiY2aKJtkC8cI"/>
-<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">50% OFF</div>
-</div>
-<h3 class="font-bold text-base mb-2">Kashmiri Saffron Pack</h3>
-<div class="flex items-center gap-2 mb-4">
-<span class="text-lg font-bold text-secondary">₹735</span>
-<span class="text-sm line-through opacity-40">₹1,470</span>
-</div>
-<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm hover:bg-secondary transition-colors">GRAB NOW</button>
-</div>
-<div class="min-w-[260px] md:min-w-[300px] bg-white rounded-2xl p-4 text-primary group shrink-0">
-<div class="relative rounded-xl overflow-hidden aspect-square mb-4">
-<img alt="Flash Item" class="w-full h-full object-cover transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFBaB96QyV_FBW3-mcoyQybHlj_hy9NowiHqoa9dVHgIDtyjYbaGedAfOx-HILGw6GE9ZIxBr7ThqxVCQPeRCdvVJAa5Fqqxd6cWQXzaqorQrr_kinWnb25Bz68fWpdbX4XSCaeZmr_3IoRa8qtZw8_syShKm0rUzo9fnLTWJudBmd8q-HVMvbRCbBIit-SCYFMgHXRPFYgRsUnRsjcQ1dx9iqAttYcgy4VUpjYAlhzwzXsXp-UMO4MRZa9HjjGYTH8tcK_x5TBdY"/>
-<div class="absolute bottom-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">30% OFF</div>
-</div>
-<h3 class="font-bold text-base mb-2">Temple Gold Earrings</h3>
-<div class="flex items-center gap-2 mb-4">
-<span class="text-lg font-bold text-secondary">₹8,740</span>
-<span class="text-sm line-through opacity-40">₹12,490</span>
-</div>
-<button class="w-full py-2.5 bg-primary text-white rounded-lg font-bold text-sm hover:bg-secondary transition-colors">GRAB NOW</button>
+<div class="flex justify-between font-bold text-primary">
+<span>Total Paid</span>
+<span>₹12,499.00</span>
 </div>
 </div>
 </div>
-</section>
-<!-- Featured Products Section -->
-<section class="py-12 md:py-xl bg-surface-container-low">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-md">
-<div class="flex items-center justify-between mb-10">
-<h2 class="font-display text-2xl md:text-3xl text-primary font-bold">Featured Products</h2>
-<a class="text-secondary font-bold hover:gap-2 flex items-center transition-all" href="#">
-                    View All <span class="material-symbols-outlined ml-1">east</span>
-</a>
 </div>
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-gutter">
-<!-- Product Template (Repeated 12 times with different data) -->
-<!-- P1 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant/40 shadow-sm hover-lift flex flex-col">
-<div class="aspect-[4/5] overflow-hidden relative bg-surface-container">
-<div class="absolute top-2 left-2 z-10 bg-primary text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">-20%</div>
-<img alt="Product" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcEL3Z_4g2j3TmlEc-Pv9xzuNOcbhx_6gWH2wiRrfywdc07_e0RqrOO8ol1rXPb2BDuLpWapdBEaFeeDjSHLGU1uNZdkV7za7P2wSrqjdUh61HoSM57mmXTNvtN1NIqhW5A2y5gER1eLyFU9UJikfwZ5DZPfZLYvV5_Wjo_xmDSZ3vij0J6u6G6-9PDoL50BP9I1tbdfmPmd4JqfJ1v02BNXX1D_66PLJn6nmZHUqF7SaK9NCL_zCU2O9WbiRMFVF4JyUo3uxhLd8"/>
 </div>
-<div class="p-4 flex flex-col flex-grow">
-<div class="flex gap-0.5 text-secondary mb-1">
-<span class="material-symbols-outlined text-[14px] fill-1">star</span>
-<span class="material-symbols-outlined text-[14px] fill-1">star</span>
-<span class="material-symbols-outlined text-[14px] fill-1">star</span></div></div></div></div></div></section></main></body></html>
+<!-- Order Tracking Teaser Image -->
+<div class="mt-gutter overflow-hidden rounded-xl h-48 md:h-64 relative group">
+<div class="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700" data-alt="A premium close-up of a high-end luxury artisan parcel wrapped in rich silk fabric and sealed with a traditional wax stamp. The lighting is warm and dramatic, highlighting the intricate textures of the cloth and the metallic sheen of the gold wax. The aesthetic is modern-corporate meets royal Indian heritage, evoking trust and premium quality." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAudlS3F5jwIc8c18AJ-cHoWGNm5MIpWy7iZJgARFT2E4rvRcoHrmmi6k0qCmXjowFgIaNEjVHfF__YOZpzS43JCqidFd1ayt6EJvMUSX0kj6SiHjQZhi3ioHNTBUpa9icun8GM0q3Jmn5jQ3gBMjh7yzJszHIzqe1kqWNr5thLqKjey_0p9zaCchUoP_N_RLZqc2D-5VXaE0Oezjyj7zhugQG0NwKeZD4Rri67AKAUVEEZtnDVqBXoS3DzQakv9rfzV3rOkLXqtes')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-md">
+<p class="text-white font-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified</span>
+                        Tracking will be available once your order is dispatched.
+                    </p>
+</div>
+</div>
+<!-- CTA -->
+<div class="mt-xl space-y-4">
+<a class="inline-block bg-primary text-on-primary font-bold px-12 py-4 rounded-lg shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all active:scale-95 text-center min-w-[240px]" href="#">
+                    Continue Shopping
+                </a>
+<br/>
+<button class="text-primary font-label-md hover:underline transition-all">
+                    Print Receipt
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-lg pb-xl bg-tertiary">
+<div class="w-full px-margin-mobile md:px-lg max-w-container-max mx-auto grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="col-span-2 md:col-span-1">
+<span class="font-headline-md text-headline-md text-secondary-fixed block mb-4">Ravi Store</span>
+<p class="font-body-sm text-body-sm text-on-tertiary opacity-80 mb-4">© 2024 Ravi Store. Royal India, Modern Premium.</p>
+</div>
+<div>
+<h4 class="text-on-tertiary font-bold mb-4">Store</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-on-tertiary-container hover:text-secondary-container transition-colors" href="#">Apparel</a></li>
+<li><a class="font-body-sm text-on-tertiary-container hover:text-secondary-container transition-colors" href="#">Handicrafts</a></li>
+<li><a class="font-body-sm text-on-tertiary-container hover:text-secondary-container transition-colors" href="#">Jewelry</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-tertiary font-bold mb-4">Help</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-on-tertiary-container hover:text-secondary-container transition-colors" href="#">Shipping</a></li>
+<li><a class="font-body-sm text-on-tertiary-container hover:text-secondary-container transition-colors" href="#">Returns</a></li>
+<li><a class="font-body-sm text-on-tertiary-container hover:text-secondary-container transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-tertiary font-bold mb-4">Social</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-tertiary cursor-pointer hover:text-secondary-container transition-colors">public</span>
+<span class="material-symbols-outlined text-on-tertiary cursor-pointer hover:text-secondary-container transition-colors">photo_camera</span>
+<span class="material-symbols-outlined text-on-tertiary cursor-pointer hover:text-secondary-container transition-colors">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Confetti Canvas -->
+<canvas class="confetti-canvas" id="confetti"></canvas>
+<!-- Micro-interaction Script -->
+<script>
+        // Simple Confetti Effect for Celebration
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
+        let pieces = [];
+        let numberOfPieces = 50;
+        let lastUpdateTime = Date.now();
+
+        function randomColor() {
+            const colors = ['#00113a', '#904d00', '#fd8b00', '#435b9f'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function update() {
+            let now = Date.now(),
+                dt = now - lastUpdateTime;
+
+            for (let i = pieces.length - 1; i >= 0; i--) {
+                let p = pieces[i];
+                if (p.y > canvas.height) {
+                    pieces.splice(i, 1);
+                    continue;
+                }
+                p.y += p.gravity * dt;
+                p.rotation += p.rotationSpeed * dt;
+            }
+
+            while (pieces.length < numberOfPieces) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: -20,
+                    rotation: Math.random() * 360,
+                    size: Math.random() * 10 + 5,
+                    color: randomColor(),
+                    gravity: Math.random() * 0.1 + 0.1,
+                    rotationSpeed: Math.random() * 0.2
+                });
+            }
+
+            lastUpdateTime = now;
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            pieces.forEach(p => {
+                ctx.save();
+                ctx.fillStyle = p.color;
+                ctx.translate(p.x + p.size / 2, p.y + p.size / 2);
+                ctx.rotate(p.rotation);
+                ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                ctx.restore();
+            });
+        }
+
+        function loop() {
+            if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            update();
+            draw();
+            requestAnimationFrame(loop);
+        }
+
+        // Trigger confetti for 5 seconds
+        loop();
+        setTimeout(() => {
+            numberOfPieces = 0;
+        }, 3000);
+    </script>
+</body></html>

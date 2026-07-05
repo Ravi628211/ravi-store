@@ -1,440 +1,121 @@
-<!DOCTYPE html>
+Create a complete modern multi-vendor eCommerce website called "Ravi Store".
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Global AI Smart Search Hub | Ravi Store</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "tertiary": "#2d0700",
-                    "primary": "#00113a",
-                    "on-primary": "#ffffff",
-                    "surface-variant": "#e2e2e4",
-                    "secondary-container": "#fd8b00",
-                    "outline-variant": "#c5c6d2",
-                    "on-secondary-container": "#603100",
-                    "surface-container-low": "#f3f3f5",
-                    "on-background": "#1a1c1d",
-                    "surface-container-high": "#e8e8ea",
-                    "on-primary-fixed-variant": "#2a4386",
-                    "on-primary-fixed": "#00174a",
-                    "background": "#f9f9fb",
-                    "surface-container-highest": "#e2e2e4",
-                    "on-error": "#ffffff",
-                    "error-container": "#ffdad6",
-                    "surface-container": "#edeef0",
-                    "on-surface-variant": "#444650",
-                    "on-secondary-fixed-variant": "#6e3900",
-                    "primary-fixed-dim": "#b3c5ff",
-                    "on-tertiary-fixed": "#390b00",
-                    "error": "#ba1a1a",
-                    "on-tertiary": "#ffffff",
-                    "inverse-primary": "#b3c5ff",
-                    "inverse-on-surface": "#f0f0f2",
-                    "tertiary-container": "#501300",
-                    "primary-fixed": "#dbe1ff",
-                    "secondary": "#904d00",
-                    "on-secondary": "#ffffff",
-                    "surface-bright": "#f9f9fb",
-                    "secondary-fixed-dim": "#ffb77d",
-                    "secondary-fixed": "#ffdcc3",
-                    "inverse-surface": "#2f3132",
-                    "on-error-container": "#93000a",
-                    "outline": "#757682",
-                    "on-tertiary-fixed-variant": "#783018",
-                    "on-secondary-fixed": "#2f1500",
-                    "tertiary-fixed": "#ffdbd0",
-                    "on-tertiary-container": "#d37758",
-                    "surface-dim": "#d9dadc",
-                    "surface": "#f9f9fb",
-                    "on-surface": "#1a1c1d",
-                    "surface-container-lowest": "#ffffff",
-                    "on-primary-container": "#758dd5",
-                    "tertiary-fixed-dim": "#ffb59e",
-                    "surface-tint": "#435b9f",
-                    "primary-container": "#002366"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "md": "16px",
-                    "xxl": "48px",
-                    "container-max": "1440px",
-                    "sm": "8px",
-                    "xl": "32px",
-                    "gutter": "24px",
-                    "base": "8px",
-                    "xs": "4px",
-                    "lg": "24px"
-            },
-            "fontFamily": {
-                    "body-lg": ["Montserrat"],
-                    "body-md": ["Montserrat"],
-                    "headline-lg-mobile": ["Montserrat"],
-                    "caption": ["Montserrat"],
-                    "label-md": ["Montserrat"],
-                    "headline-md": ["Montserrat"],
-                    "display-lg": ["Montserrat"],
-                    "title-lg": ["Montserrat"],
-                    "headline-lg": ["Montserrat"]
-            },
-            "fontSize": {
-                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "display-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        body { font-family: 'Montserrat', sans-serif; }
-        .glass-header {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-        }
-        .ai-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-        }
-        .search-gradient {
-            background: linear-gradient(135deg, #00113a 0%, #002366 100%);
-        }
-    </style>
-</head>
-<body class="bg-background text-on-background min-h-screen overflow-x-hidden">
-<!-- TopNavBar -->
-<header class="w-full sticky top-0 z-50 bg-surface shadow-sm flex justify-between items-center px-lg py-sm w-full">
-<div class="flex items-center gap-md">
-<span class="font-display-md text-display-md font-bold text-primary">Ravi Store Support</span>
-</div>
-<nav class="hidden md:flex gap-lg">
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Dashboard</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Tickets</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Reviews</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Help Center</a>
-</nav>
-<div class="flex items-center gap-md">
-<button class="cursor-pointer active:opacity-80 p-xs"><span class="material-symbols-outlined text-on-surface-variant">notifications</span></button>
-<button class="cursor-pointer active:opacity-80 p-xs"><span class="material-symbols-outlined text-on-surface-variant">settings</span></button>
-<button class="cursor-pointer active:opacity-80 p-xs"><span class="material-symbols-outlined text-on-surface-variant">help</span></button>
-<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
-<img class="w-full h-full object-cover" data-alt="A professional portrait of a support agent in a clean, modern office setting with soft corporate lighting. The style is bright and professional, utilizing a white and royal blue palette to match the enterprise theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS0m3dIZjf0vakr9Wzz6oz_e1NmZmAqpWe0LM-UZv5dxxNin8xR9sko8YokkSJ-WM5q2PBf0hQGUK4Oa_rb4cWvGt3NDRsXS22ti_Ksw55V0maklx1f4BV-2YeW9NX_Dg0ebWfjwiyTY7FcPPtFGsqli7NpAXmF2Q18BtnS7wIkc783-A6wnFzh7OZCEreV9-erlIXx2B4ELS9j3-REylWTrEPVGAPmTopWOjAQioAovvaNg-wSeNoO2dg4zXtwU-g4d6yZICmU-7N"/>
-</div>
-</div>
-</header>
-<main class="flex">
-<!-- SideNavBar -->
-<aside class="w-[280px] h-[calc(100vh-64px)] fixed left-0 top-16 bg-surface-container-low border-r border-outline-variant hidden lg:flex flex-col p-md gap-sm">
-<div class="mb-lg px-sm">
-<h2 class="font-headline-sm text-headline-sm font-black text-primary">Ravi Store</h2>
-<p class="font-label-md text-label-md text-on-surface-variant">Admin Dashboard</p>
-</div>
-<div class="space-y-sm flex-1">
-<div class="flex items-center gap-md text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all duration-200">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="font-label-md text-label-md">Overview</span>
-</div>
-<div class="flex items-center gap-md bg-primary-container text-on-primary-container rounded-lg px-md py-sm cursor-pointer shadow-sm">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
-<span class="font-label-md text-label-md">AI Smart Search</span>
-</div>
-<div class="flex items-center gap-md text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all duration-200">
-<span class="material-symbols-outlined">confirmation_number</span>
-<span class="font-label-md text-label-md">Support Tickets</span>
-</div>
-<div class="flex items-center gap-md text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all duration-200">
-<span class="material-symbols-outlined">star</span>
-<span class="font-label-md text-label-md">Review Center</span>
-</div>
-<div class="flex items-center gap-md text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all duration-200">
-<span class="material-symbols-outlined">chat</span>
-<span class="font-label-md text-label-md">Live Chat</span>
-</div>
-<div class="flex items-center gap-md text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all duration-200">
-<span class="material-symbols-outlined">store</span>
-<span class="font-label-md text-label-md">Marketplace Vendors</span>
-</div>
-</div>
-<button class="bg-secondary text-on-secondary rounded-lg px-md py-sm font-label-md flex items-center justify-center gap-sm mt-auto mb-lg active:scale-95 transition-transform">
-<span class="material-symbols-outlined text-[18px]">add</span>
-                Create New Ticket
-            </button>
-<div class="border-t border-outline-variant pt-md space-y-xs">
-<div class="flex items-center gap-md text-on-surface-variant hover:bg-surface-container-high rounded-lg px-md py-sm cursor-pointer transition-all duration-200">
-<span class="material-symbols-outlined">settings</span>
-<span class="font-label-md text-label-md">Account Settings</span>
-</div>
-<div class="flex items-center gap-md text-error hover:bg-error-container/20 rounded-lg px-md py-sm cursor-pointer transition-all duration-200">
-<span class="material-symbols-outlined">logout</span>
-<span class="font-label-md text-label-md">Logout</span>
-</div>
-</div>
-</aside>
-<!-- Content Canvas -->
-<div class="flex-1 lg:ml-[280px] p-lg max-w-[1440px] mx-auto w-full">
-<!-- AI Hero Search Section -->
-<section class="relative mb-xxl rounded-xl overflow-hidden search-gradient min-h-[320px] flex flex-col items-center justify-center p-xl shadow-xl">
-<div class="absolute inset-0 opacity-10">
+This is a WEB APPLICATION (not a mobile app).
 
-</div>
-<div class="relative z-10 w-full max-w-3xl text-center space-y-lg">
-<h1 class="font-display-lg text-display-lg text-on-primary">AI Smart Search Hub</h1>
-<p class="text-primary-fixed-dim font-body-lg text-body-lg">Predictive intelligence at your fingertips. Search by voice, image, or text.</p>
-<div class="relative group mt-lg">
-<div class="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-0 group-focus-within:opacity-100 transition-opacity"></div>
-<div class="relative flex items-center bg-surface border-2 border-transparent focus-within:border-secondary-container rounded-full p-xs shadow-2xl transition-all duration-300">
-<span class="material-symbols-outlined ml-md text-primary ai-pulse">psychology</span>
-<input class="flex-1 bg-transparent border-none focus:ring-0 px-md py-sm text-on-surface font-body-lg placeholder:text-outline h-14" placeholder="Ask AI anything about Ravi Store products..." type="text"/>
-<div class="flex items-center gap-sm pr-sm">
-<button class="p-sm hover:bg-surface-container rounded-full transition-colors tooltip" title="Voice Search">
-<span class="material-symbols-outlined text-primary">mic</span>
-</button>
-<button class="p-sm hover:bg-surface-container rounded-full transition-colors" title="Image Search">
-<span class="material-symbols-outlined text-primary">photo_camera</span>
-</button>
-<button class="bg-secondary text-on-secondary px-lg h-12 rounded-full font-label-md active:scale-95 transition-transform flex items-center gap-xs">
-                                    Search
-                                    <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
-<div class="flex flex-wrap justify-center gap-md mt-lg">
-<span class="text-primary-fixed-dim font-label-md py-sm">Trending:</span>
-<span class="bg-primary-container/30 text-primary-fixed border border-primary-fixed/20 px-md py-sm rounded-full text-caption cursor-pointer hover:bg-primary-container/50 transition-colors">Quantum Laptops</span>
-<span class="bg-primary-container/30 text-primary-fixed border border-primary-fixed/20 px-md py-sm rounded-full text-caption cursor-pointer hover:bg-primary-container/50 transition-colors">Ergo Desks</span>
-<span class="bg-primary-container/30 text-primary-fixed border border-primary-fixed/20 px-md py-sm rounded-full text-caption cursor-pointer hover:bg-primary-container/50 transition-colors">API Integration</span>
-</div>
-</div>
-</section>
-<div class="grid grid-cols-12 gap-lg">
-<!-- Filters Sidebar -->
-<aside class="col-span-12 lg:col-span-3 space-y-lg">
-<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
-<div class="flex items-center justify-between mb-md">
-<h3 class="font-title-lg text-title-lg text-primary">Filters</h3>
-<button class="text-secondary font-label-md">Reset</button>
-</div>
-<!-- Compare Toggle -->
-<div class="flex items-center justify-between p-md bg-secondary-container/10 border border-secondary-container/20 rounded-lg mb-lg">
-<span class="font-label-md text-on-secondary-container">Compare Products</span>
-<label class="relative inline-flex items-center cursor-pointer">
-<input class="sr-only peer" type="checkbox" value=""/>
-<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
-</label>
-</div>
-<div class="space-y-lg">
-<div>
-<h4 class="font-label-md text-on-surface mb-sm">Categories</h4>
-<div class="space-y-sm">
-<label class="flex items-center gap-md cursor-pointer group">
-<input checked="" class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/>
-<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Hardware (24)</span>
-</label>
-<label class="flex items-center gap-md cursor-pointer group">
-<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/>
-<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Software Licenses (18)</span>
-</label>
-<label class="flex items-center gap-md cursor-pointer group">
-<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary" type="checkbox"/>
-<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Cloud Services (12)</span>
-</label>
-</div>
-</div>
-<div>
-<h4 class="font-label-md text-on-surface mb-sm">Availability</h4>
-<div class="flex flex-wrap gap-sm">
-<span class="px-md py-xs bg-surface-container text-on-surface rounded-full text-caption border border-outline-variant cursor-pointer hover:border-primary transition-colors">In Stock</span>
-<span class="px-md py-xs bg-surface-container text-on-surface rounded-full text-caption border border-outline-variant cursor-pointer hover:border-primary transition-colors">Pre-order</span>
-<span class="px-md py-xs bg-surface-container text-on-surface rounded-full text-caption border border-outline-variant cursor-pointer hover:border-primary transition-colors">Clearance</span>
-</div>
-</div>
-<div>
-<h4 class="font-label-md text-on-surface mb-sm">Price Range</h4>
-<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-secondary" type="range"/>
-<div class="flex justify-between mt-xs font-label-md text-on-surface-variant">
-<span>$0</span>
-<span>$5,000+</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Recent Searches -->
-<div class="bg-surface p-lg rounded-xl border border-outline-variant">
-<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider mb-md">Recent History</h3>
-<div class="space-y-sm">
-<div class="flex items-center gap-sm text-body-md text-on-surface-variant hover:text-primary cursor-pointer">
-<span class="material-symbols-outlined text-[18px]">history</span>
-<span>Zenith Workstation Pro</span>
-</div>
-<div class="flex items-center gap-sm text-body-md text-on-surface-variant hover:text-primary cursor-pointer">
-<span class="material-symbols-outlined text-[18px]">history</span>
-<span>Support ticket #9021</span>
-</div>
-<div class="flex items-center gap-sm text-body-md text-on-surface-variant hover:text-primary cursor-pointer">
-<span class="material-symbols-outlined text-[18px]">history</span>
-<span>Marketplace refund policy</span>
-</div>
-</div>
-</div>
-</aside>
-<!-- Search Results & Recommendations -->
-<div class="col-span-12 lg:col-span-9 space-y-xl">
-<!-- Result Header -->
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-md">
-<div>
-<h2 class="font-headline-md text-headline-md text-primary">Personalized Recommendations</h2>
-<p class="text-on-surface-variant text-body-md">Based on your recent activity and saved tickets.</p>
-</div>
-<div class="flex items-center gap-sm bg-surface-container-lowest p-xs rounded-lg border border-outline-variant shadow-sm">
-<button class="p-sm bg-primary-container text-on-primary-container rounded-md">
-<span class="material-symbols-outlined">grid_view</span>
-</button>
-<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-md">
-<span class="material-symbols-outlined">view_list</span>
-</button>
-</div>
-</div>
-<!-- Recommendation Grid (Bento Style) -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
-<!-- Featured Recommendation -->
-<div class="md:col-span-2 relative group overflow-hidden rounded-2xl bg-white shadow-md border border-outline-variant hover:shadow-xl transition-all duration-300">
-<div class="h-64 relative">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A top-down aesthetic shot of a high-end workstation setup. Includes a minimalist laptop, a mechanical keyboard, and a smart lamp on a clean wooden desk. Lighting is natural and crisp, emphasizing a productive enterprise environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABJKTc9JYV-LPSeXhmPNUubSNyRWfTJrcH0eUZRYZLHanm7TUMrwtfjVzBLD7En_pkeqhm8YUQf2aVLo0o9QCgpdnirvwS6vvZ9pI2M_y9R1Ms6s5Dht1pG309sEGT3YJ9cV4cRwy3yGji1CoSX535wJXP-5w1zlLS_Fgdx7uEWCUmPbDkkZLpml8StIO_owPGKEoNdDd2ZdbSznqy6EDLQAYGL3mgP23aln3JjK00gwUytjnlwnBbh8Pcnsxsr8mdnp9XSxAYI-m6"/>
-<div class="absolute top-md left-md">
-<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-md text-caption shadow-lg">Highly Relevant</span>
-</div>
-</div>
-<div class="p-lg">
-<div class="flex justify-between items-start mb-sm">
-<h3 class="font-headline-sm text-headline-sm text-primary">UltraLink Quantum G2</h3>
-<span class="font-headline-sm text-headline-sm text-secondary">$1,499.00</span>
-</div>
-<p class="text-on-surface-variant text-body-md line-clamp-2 mb-md">The next generation of AI-integrated hardware. Features dedicated neural processing units for real-time data analysis and seamless enterprise security.</p>
-<div class="flex items-center gap-md">
-<button class="flex-1 bg-primary text-on-primary py-sm rounded-lg font-label-md hover:bg-primary/90 transition-colors active:scale-95">View Details</button>
-<button class="p-sm border border-outline-variant rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-primary">compare_arrows</span></button>
-</div>
-</div>
-</div>
-<!-- Secondary Card 1 -->
-<div class="bg-white rounded-2xl shadow-md border border-outline-variant flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
-<div class="h-40 relative">
-<img class="w-full h-full object-cover" data-alt="A professional close-up of a sleek ergonomic office chair with premium mesh texture. The scene is set in a bright, modern studio with cool blue and gray tones, suggesting high-quality corporate furniture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHer5rCHvXix-JMKnq1xfUVutw2W-DKVhX10ifkm4aGjDzO-5RQg0SJIhrPNmrMuR8lWKVfVW8MMDOztt7c4TP2HdViApPMubc7BJHYGID9Vo5U01msQm880pW-_dLJKGM-HHBtXzYpSP6up3636f6UFLofN9wTO14Bk9dk57GGAwVVBrssvvEjHrsV0JBU559vtATvQIbIJe2Z4Y1QKgUN-RpeqwG4Xr5nJOhaTO6vYXiWFkXj7QnCFt04m0E8ZPQ4wz1ExUTMZsD"/>
-</div>
-<div class="p-md flex-1 flex flex-col">
-<h3 class="font-title-lg text-title-lg text-primary mb-xs">AeroFlow Mesh Chair</h3>
-<div class="flex items-center gap-xs text-secondary-container mb-md">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-md text-caption">4.9 (124 reviews)</span>
-</div>
-<div class="mt-auto">
-<span class="text-on-surface-variant font-headline-sm">$320.00</span>
-<button class="w-full mt-sm py-xs border-2 border-primary text-primary rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all">Add to Compare</button>
-</div>
-</div>
-</div>
-<!-- Secondary Card 2 -->
-<div class="bg-white rounded-2xl shadow-md border border-outline-variant flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
-<div class="h-40 relative">
-<img class="w-full h-full object-cover" data-alt="Modern high-speed solid state drive (SSD) displayed on a futuristic glowing interface. The art style uses deep royal blues and vibrant orange light accents to show technology and speed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb3wiUSPEqB1jTeSelESYOFQVRb_8wfH6Q7khC3lke98dHEhfYkT_OrWSRTVg3Iirqp4tUTrGfRPGi4uUuprGV7U7NsakaXuvSG3U7IAEqn2Djz0nsc_Iwmvv7uWmsjpAljrOVJgMg8pcQdHgaZi4T8Ea-MCa-1DPGc4dmQY_6LKDk9tlEizxBk3E7DRbMiPezkMCZ2UACyzwuEIToOO1Dge56JvnNgcH3nMW0YjjQcoQrhR8aqmd6X3F1Mbj_u1GZG63nCFTZUlDd"/>
-</div>
-<div class="p-md flex-1 flex flex-col">
-<h3 class="font-title-lg text-title-lg text-primary mb-xs">HyperDrive X-Series</h3>
-<p class="text-caption text-on-surface-variant mb-md">2TB Enterprise Storage Solution</p>
-<div class="mt-auto">
-<span class="text-on-surface-variant font-headline-sm">$189.99</span>
-<button class="w-full mt-sm py-xs border-2 border-primary text-primary rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all">Add to Compare</button>
-</div>
-</div>
-</div>
-<!-- Secondary Card 3 -->
-<div class="bg-white rounded-2xl shadow-md border border-outline-variant flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
-<div class="h-40 relative">
-<img class="w-full h-full object-cover" data-alt="A modern software dashboard on a tablet screen, displaying complex analytics charts in a royal blue and white interface. The lighting is soft and professional, highlighting a clean UI design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmo1YzXFufrrhJdRlmQlKjAGsCOjglen4J609o0qjuHYtVKTNJE2uN_dgLsgFVqgBWA7TRQKcJaBnCV2lBGtd-D6IQfo-jKaVA5lGDYTWIVDQvW_MvSBSMHAFiQ1NKviAuai6951ZuwC6nFVVU6rzmHHSt7nhBO7_rCzAIEMBPDNIlizZl7kQDUiFeTfRs5Ye4c4UMTUlf8bu9NRRlKajX6g4HJrk0EcTTp3a9jOwngqdrmrVgzMDmOIybb6goOQn8pCD2qXAiZcNg"/>
-</div>
-<div class="p-md flex-1 flex flex-col">
-<h3 class="font-title-lg text-title-lg text-primary mb-xs">CMS Enterprise License</h3>
-<p class="text-caption text-on-surface-variant mb-md">Annual Subscription - 50 Seats</p>
-<div class="mt-auto">
-<span class="text-on-surface-variant font-headline-sm">$2,400.00</span>
-<button class="w-full mt-sm py-xs border-2 border-primary text-primary rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all">Request Quote</button>
-</div>
-</div>
-</div>
-<!-- Stats Card -->
-<div class="bg-primary-container text-on-primary-container rounded-2xl p-lg flex flex-col justify-center items-center text-center">
-<span class="material-symbols-outlined text-display-lg mb-sm">auto_awesome</span>
-<h3 class="font-headline-sm text-headline-sm mb-xs">Search Intelligence</h3>
-<p class="text-body-md opacity-80 mb-md">98% match found for your previous search for 'High Performance Servers'</p>
-<button class="bg-on-primary-container text-primary-container px-lg py-sm rounded-full font-label-md hover:brightness-110 transition-all">Show Best Match</button>
-</div>
-</div>
-<!-- Bottom CTA Section -->
-<div class="relative bg-surface-container-highest rounded-2xl p-xl flex flex-col md:flex-row items-center gap-xl overflow-hidden">
-<div class="absolute top-0 right-0 w-64 h-64 bg-secondary-container/10 rounded-full -mr-xl -mt-xl blur-3xl"></div>
-<div class="flex-1 space-y-md">
-<h2 class="font-headline-md text-headline-md text-primary">Need Expert Help?</h2>
-<p class="text-on-surface-variant font-body-lg">Can't find what you're looking for? Our AI agents and support staff are available 24/7 to assist with complex hardware configurations.</p>
-<div class="flex gap-md">
-<button class="bg-primary text-on-primary px-xl py-sm rounded-lg font-label-md flex items-center gap-sm shadow-md">
-<span class="material-symbols-outlined">chat_bubble</span>
-                                    Start Live Chat
-                                </button>
-<button class="bg-surface text-primary border border-outline px-xl py-sm rounded-lg font-label-md">
-                                    Visit FAQ
-                                </button>
-</div>
-</div>
-<div class="w-full md:w-1/3">
-<img class="w-full h-auto drop-shadow-lg" data-alt="A friendly, diverse support team avatar composition. Modern minimalist illustration style using the brand colors: Royal Blue and Vibrant Orange. Clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM7eWM_PkfSiQUEFXSCl3ZZ0jp-YHnFXrf7XG_RrwcPiYBKSkHL2dFONTmkflpxzVG-N5e1kWb-DsYK_KXNdgvlbbMOMdyFfOQQQ5Rs8Q_BN0UkPiKcgNb1ABjD_qB1ISw7XmLs6QnZs8C7_6aWscQMXWlKD0bOelkk-74diTZQVwo0iTMOFVGStG8xiRkW3h3Os7D05_aY9GK8lf6CldJaImsYHpK4YRHvV9lx0OW4hwQ-BFUdkaMaEfIvB7u0wR1nK4di2eFZ7ux"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Interactive Search Scripts -->
-<script>
-        const searchInput = document.querySelector('input[type="text"]');
-        const searchContainer = searchInput.parentElement;
+Brand Name:
+Ravi Store
 
-        searchInput.addEventListener('focus', () => {
-            searchContainer.classList.add('scale-[1.02]');
-        });
+Theme:
+- White background
+- Royal Blue primary color (#0F52BA)
+- Orange accent (#FF6B00)
+- Premium modern UI
+- Rounded cards
+- Soft shadows
+- Smooth animations
+- Luxury shopping experience
+- Fully responsive
 
-        searchInput.addEventListener('blur', () => {
-            searchContainer.classList.remove('scale-[1.02]');
-        });
+Target Audience:
+Indian online shoppers.
 
-        // Simple typing feedback effect
-        searchInput.addEventListener('input', (e) => {
-            if (e.target.value.length > 0) {
-                // In a real app, this would trigger the recommendations update
-                console.log("AI Search active for:", e.target.value);
-            }
-        });
-    </script>
-</body></html>
+Main Categories:
+• Clothes
+• Home & Kitchen
+• Mobile Accessories
+• Electronics
+
+Create the following pages:
+
+1. Home Page
+- Premium Header
+- Ravi Store Logo
+- Mega Search Bar
+- Login
+- Cart
+- Wishlist
+- Categories Menu
+- Hero Banner Slider
+- Flash Sale
+- Featured Categories
+- Best Sellers
+- New Arrivals
+- Trending Products
+- Top Brands
+- Customer Reviews
+- Newsletter
+- Professional Footer
+
+2. Category Page
+
+3. Product Listing Page
+
+4. Product Details Page
+
+5. Shopping Cart Page
+
+6. Checkout Page
+
+7. Login Page
+
+8. Sign Up Page
+
+9. User Profile
+
+10. Orders Page
+
+11. Wishlist Page
+
+12. Seller Dashboard
+- Dashboard
+- Add Product
+- Product Listing
+- Orders
+- Inventory
+- Analytics
+- Wallet
+
+13. Admin Dashboard
+- Dashboard
+- Products
+- Categories
+- Orders
+- Customers
+- Sellers
+- Reports
+- Coupons
+- Banner Manager
+- Settings
+
+Features:
+- Premium Product Cards
+- Discount Badges
+- Ratings
+- Reviews
+- Add to Cart
+- Buy Now
+- Search
+- Filters
+- Sort
+- Responsive Design
+- SEO Friendly
+- Fast Loading
+
+Generate a complete professional website with separate HTML pages.
+
+Do not replace pages.
+Create separate files:
+index.html
+products.html
+product.html
+cart.html
+checkout.html
+login.html
+signup.html
+profile.html
+orders.html
+wishlist.html
+seller-dashboard.html
+admin-dashboard.html
+
+Maintain the same design system across all pages.

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - Ravi Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .step-active { border-color: #00113a; color: #00113a; }
+        .step-inactive { border-color: #e2e2e5; color: #444650; }
+        
+        /* Custom scrollbar for order summary */
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c5c6d2; border-radius: 10px; }
+
+        .payment-radio:checked + label {
+            border-color: #00113a;
+            background-color: #f3f3f6;
+            box-shadow: 0 0 0 1px #00113a;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#b3c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2f1500",
+                        "surface-tint": "#435b9f",
+                        "primary": "#00113a",
+                        "on-surface-variant": "#444650",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#26292a",
+                        "on-primary-fixed": "#00174a",
+                        "secondary": "#904d00",
+                        "surface-container-high": "#e8e8ea",
+                        "on-secondary-container": "#603100",
+                        "on-tertiary-fixed": "#191c1d",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1e",
+                        "on-tertiary-container": "#8e9091",
+                        "primary-container": "#002366",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container": "#eeeef0",
+                        "primary-fixed": "#dbe1ff",
+                        "outline": "#757682",
+                        "surface-bright": "#f9f9fc",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "surface-container-highest": "#e2e2e5",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "tertiary": "#121516",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "on-primary-container": "#758dd5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f3f3f6",
+                        "on-surface": "#1a1c1e",
+                        "surface-dim": "#dadadc",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9fc",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "surface": "#f9f9fc",
+                        "inverse-surface": "#2f3133",
+                        "tertiary-fixed": "#e1e3e4",
+                        "secondary-fixed": "#ffdcc3",
+                        "secondary-container": "#fd8b00",
+                        "outline-variant": "#c5c6d2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20">
+<div class="flex items-center gap-12">
+<a class="text-headline-md font-headline-md font-bold text-primary" href="#">Ravi Store</a>
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md font-semibold">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Shop</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Categories</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Deals</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Orders</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded focus:outline-none focus:border-primary transition-all w-64" placeholder="Search products..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<button class="material-symbols-outlined p-2 hover:bg-surface-container rounded-full transition-colors">shopping_cart</button>
+<button class="material-symbols-outlined p-2 hover:bg-surface-container rounded-full transition-colors">account_circle</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-container-max mx-auto px-margin-desktop py-12 w-full">
+<!-- Breadcrumbs & Title -->
+<div class="mb-10">
+<div class="flex items-center gap-2 text-label-md text-on-surface-variant mb-4">
+<span>Cart</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Checkout</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>Confirmation</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Secure Checkout</h1>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Forms -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Delivery Section -->
+<section class="bg-surface-container-lowest border border-outline-variant p-8 transition-shadow">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">1</div>
+<h2 class="text-headline-md font-headline-md text-primary">Delivery Address</h2>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="address-form">
+<div class="md:col-span-2">
+<label class="block text-label-md font-semibold text-on-surface mb-2">Full Name</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded focus:ring-2 focus:ring-primary/10 focus:border-primary outline-none transition-all" placeholder="Enter your full name" type="text"/>
+</div>
+<div class="md:col-span-2">
+<label class="block text-label-md font-semibold text-on-surface mb-2">Street Address</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded focus:ring-2 focus:ring-primary/10 focus:border-primary outline-none transition-all" placeholder="House no., Building, Street, Area" type="text"/>
+</div>
+<div>
+<label class="block text-label-md font-semibold text-on-surface mb-2">City</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded focus:ring-2 focus:ring-primary/10 focus:border-primary outline-none transition-all" placeholder="Mumbai" type="text"/>
+</div>
+<div>
+<label class="block text-label-md font-semibold text-on-surface mb-2">Zip Code</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded focus:ring-2 focus:ring-primary/10 focus:border-primary outline-none transition-all" placeholder="400001" type="text"/>
+</div>
+<div class="md:col-span-2 flex items-center gap-3">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="save-address" type="checkbox"/>
+<label class="text-body-md text-on-surface-variant" for="save-address">Save this address for future orders</label>
+</div>
+</form>
+</section>
+<!-- Payment Section -->
+<section class="bg-surface-container-lowest border border-outline-variant p-8 transition-shadow">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">2</div>
+<h2 class="text-headline-md font-headline-md text-primary">Payment Method</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- UPI Option -->
+<div class="relative">
+<input checked="" class="hidden payment-radio" id="upi" name="payment" type="radio"/>
+<label class="flex flex-col items-center justify-center p-6 border border-outline-variant rounded cursor-pointer hover:bg-surface-container-low transition-all h-full text-center" for="upi">
+<span class="material-symbols-outlined text-4xl mb-3 text-primary">account_balance_wallet</span>
+<span class="font-semibold text-primary">UPI</span>
+<span class="text-label-sm text-on-surface-variant mt-1">GPay, PhonePe, Paytm</span>
+</label>
+</div>
+<!-- Card Option -->
+<div class="relative">
+<input class="hidden payment-radio" id="card" name="payment" type="radio"/>
+<label class="flex flex-col items-center justify-center p-6 border border-outline-variant rounded cursor-pointer hover:bg-surface-container-low transition-all h-full text-center" for="card">
+<span class="material-symbols-outlined text-4xl mb-3 text-primary">credit_card</span>
+<span class="font-semibold text-primary">Card</span>
+<span class="text-label-sm text-on-surface-variant mt-1">Credit / Debit Cards</span>
+</label>
+</div>
+<!-- COD Option -->
+<div class="relative">
+<input class="hidden payment-radio" id="cod" name="payment" type="radio"/>
+<label class="flex flex-col items-center justify-center p-6 border border-outline-variant rounded cursor-pointer hover:bg-surface-container-low transition-all h-full text-center" for="cod">
+<span class="material-symbols-outlined text-4xl mb-3 text-primary">payments</span>
+<span class="font-semibold text-primary">COD</span>
+<span class="text-label-sm text-on-surface-variant mt-1">Cash on Delivery</span>
+</label>
+</div>
+</div>
+<!-- Dynamic Card Input (Conditional visibility can be handled with JS) -->
+<div class="mt-8 pt-8 border-t border-outline-variant hidden" id="card-details">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="md:col-span-2">
+<label class="block text-label-md font-semibold text-on-surface mb-2">Card Number</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded focus:border-primary outline-none" placeholder="XXXX XXXX XXXX XXXX" type="text"/>
+</div>
+<div>
+<label class="block text-label-md font-semibold text-on-surface mb-2">Expiry Date</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded focus:border-primary outline-none" placeholder="MM/YY" type="text"/>
+</div>
+<div>
+<label class="block text-label-md font-semibold text-on-surface mb-2">CVV</label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded focus:border-primary outline-none" placeholder="***" type="password"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<aside class="lg:col-span-4 sticky top-32">
+<div class="bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden">
+<div class="p-6 bg-primary text-on-primary">
+<h3 class="font-headline-md text-headline-md">Order Summary</h3>
+</div>
+<div class="p-6">
+<div class="max-h-[300px] overflow-y-auto custom-scrollbar pr-2 space-y-6 mb-8">
+<!-- Item 1 -->
+<div class="flex gap-4">
+<div class="w-20 h-20 flex-shrink-0 bg-white border border-outline-variant rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A premium high-end navy blue tailored suit jacket displayed on a minimalist wooden hanger against a clean soft-white background. Professional studio lighting highlights the intricate fabric texture and royal blue stitching. The aesthetic is sophisticated, luxury corporate, and clean light-mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArWn6Uh2Cy-SK36x0kvokh2Vy1eBNjlyAu4zQ9mm0MjMVnBgS6Sq9IEVNLOfBO8wJueQyU17aJmYfI4IbDeBVG0JaBI0TEZvGl_OFTwFPAsAbqo_RuSbgtUtvnU_c_XkMjR8Z7ioHpHpCvknHwUNaBceraKYrgMsgOY6yX-QzlM3kmLM-s0dVWC2YDFxPyIh40JUvqGeKtis7mHfPEw98HB6CGvGzPFp4Zz9Rgh9RoN23I-sPmwfUElo16lETVFUHWnBw5bMa19A"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-semibold text-primary line-clamp-1">Midnight Navy Blazer</h4>
+<p class="text-label-sm text-on-surface-variant">Size: L • Qty: 1</p>
+<p class="font-bold text-primary mt-1">₹4,999</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4">
+<div class="w-20 h-20 flex-shrink-0 bg-white border border-outline-variant rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A pair of minimalist premium white leather sneakers with subtle orange accents on the heel and tongue. The sneakers are placed on a sleek marble surface with high-key neutral lighting. The scene conveys a modern, professional, and energetic urban lifestyle aesthetic using a refined palette of white and vibrant orange." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt7_a6XPqobTbymGQWjK1Dr_X6GqO0wpS2N3lRotLkTzS0E73-7ogCj3rSO2IakdT3wapkDeCMy3jOka_ykC1wGoUkdrWIZtgQf1hSNF066RzXTj3wzXD09gNGpcpAgzII5r3RnhyYR_Bd2Sgfmh6q-p60PdLDS6tn-Z87lvdIR7SyO8eTppHD1NpFHVq6lQ1dMWj9NwiLUZRK94R87zOW5Ckx-vTvdnolJsiBVwCtuvRCidbutP0-RdrRdoqvBOGOGa4Ovo-SKQ"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-semibold text-primary line-clamp-1">Aero Step Sneakers</h4>
+<p class="text-label-sm text-on-surface-variant">Size: 42 • Qty: 1</p>
+<p class="font-bold text-primary mt-1">₹2,499</p>
+</div>
+</div>
+</div>
+<div class="space-y-4 border-t border-outline-variant pt-6">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span>₹7,498</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Shipping</span>
+<span class="text-secondary font-bold">FREE</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Tax (GST 18%)</span>
+<span>₹1,349</span>
+</div>
+<div class="flex justify-between items-end pt-4 border-t border-outline-variant">
+<span class="font-bold text-headline-md text-primary leading-none">Total</span>
+<span class="font-bold text-headline-lg text-primary leading-none">₹8,847</span>
+</div>
+</div>
+<button class="w-full mt-10 bg-secondary-container hover:bg-secondary text-white font-bold py-4 rounded shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-3 uppercase tracking-wider" id="place-order-btn">
+<span>Place Order</span>
+<span class="material-symbols-outlined">lock</span>
+</button>
+<p class="text-center text-label-sm text-on-surface-variant mt-4">
+                            30-day money-back guarantee. Secure SSL encryption.
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-base bg-surface-container-low border-t border-outline-variant mt-20">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="text-headline-md font-headline-md text-primary font-bold">Ravi Store</div>
+<div class="flex flex-wrap justify-center gap-8 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant">© 2024 Ravi Store. All rights reserved.</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for payment selection
+        const paymentRadios = document.querySelectorAll('input[name="payment"]');
+        const cardDetails = document.getElementById('card-details');
+
+        paymentRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.id === 'card') {
+                    cardDetails.classList.remove('hidden');
+                    cardDetails.classList.add('animate-fade-in');
+                } else {
+                    cardDetails.classList.add('hidden');
+                }
+            });
+        });
+
+        // Place order animation
+        const orderBtn = document.getElementById('place-order-btn');
+        orderBtn.addEventListener('click', () => {
+            const originalContent = orderBtn.innerHTML;
+            orderBtn.disabled = true;
+            orderBtn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Processing...</span>
+            `;
+            
+            setTimeout(() => {
+                orderBtn.classList.replace('bg-secondary-container', 'bg-green-600');
+                orderBtn.innerHTML = `
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Order Placed!</span>
+                `;
+                setTimeout(() => {
+                    alert('Order #RS-99231 Successful! Redirecting to confirmation page...');
+                    window.location.reload(); // Simulate redirect
+                }, 1000);
+            }, 2000);
+        });
+
+        // Form focus effects
+        const inputs = document.querySelectorAll('input[type="text"], input[type="password"]');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+    </script>
+<style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+    </style>
+</body></html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Orders - Ravi Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .order-card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 4px 20px rgba(0, 35, 102, 0.08);
+        }
+        .transition-all-200 {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed": "#2f1500",
+                        "surface-dim": "#dadadc",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "surface-container-low": "#f3f3f6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-surface-variant": "#444650",
+                        "outline": "#757682",
+                        "primary-container": "#002366",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e1e3e4",
+                        "surface": "#f9f9fc",
+                        "surface-tint": "#435b9f",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#b3c5ff",
+                        "on-tertiary-container": "#8e9091",
+                        "on-primary-container": "#758dd5",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "on-surface": "#1a1c1e",
+                        "on-secondary-container": "#603100",
+                        "on-primary-fixed": "#00174a",
+                        "secondary-container": "#fd8b00",
+                        "surface-container": "#eeeef0",
+                        "background": "#f9f9fc",
+                        "on-error": "#ffffff",
+                        "tertiary": "#121516",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#904d00",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffdcc3",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "outline-variant": "#c5c6d2",
+                        "inverse-surface": "#2f3133",
+                        "tertiary-container": "#26292a",
+                        "surface-container-highest": "#e2e2e5",
+                        "primary": "#00113a",
+                        "on-background": "#1a1c1e",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-bright": "#f9f9fc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-desktop": "32px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant shadow-sm h-20 flex items-center">
+<div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center w-full">
+<div class="flex items-center gap-10">
+<span class="text-headline-md font-headline-md font-bold text-primary">Ravi Store</span>
+<nav class="hidden md:flex gap-8 items-center font-body-md text-body-md font-semibold">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Shop</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Categories</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Deals</a>
+<a class="text-primary border-b-2 border-primary pb-1" href="#">Orders</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-64" placeholder="Search orders..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:text-secondary transition-colors"><span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span></button>
+<button class="text-primary hover:text-secondary transition-colors"><span class="material-symbols-outlined" data-icon="account_circle">account_circle</span></button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-12">
+<!-- Page Title & Stats -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">My Orders</h1>
+<p class="text-on-surface-variant font-body-md">Manage your recent purchases and track shipments.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-high px-6 py-3 rounded-xl border border-outline-variant text-center">
+<span class="block text-label-sm uppercase tracking-wider text-outline">Total Orders</span>
+<span class="text-headline-md font-bold text-primary">24</span>
+</div>
+<div class="bg-secondary-container/10 px-6 py-3 rounded-xl border border-secondary-container/30 text-center">
+<span class="block text-label-sm uppercase tracking-wider text-on-secondary-container">In Transit</span>
+<span class="text-headline-md font-bold text-secondary-container">03</span>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-wrap items-center gap-4 mb-8 bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+<span class="text-label-md font-bold text-on-surface mr-2">Filter by:</span>
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary text-label-md shadow-sm">All Orders</button>
+<button class="px-4 py-2 rounded-full bg-surface border border-outline-variant text-on-surface-variant text-label-md hover:bg-surface-container transition-colors">Shipped</button>
+<button class="px-4 py-2 rounded-full bg-surface border border-outline-variant text-on-surface-variant text-label-md hover:bg-surface-container transition-colors">Processing</button>
+<button class="px-4 py-2 rounded-full bg-surface border border-outline-variant text-on-surface-variant text-label-md hover:bg-surface-container transition-colors">Delivered</button>
+</div>
+<!-- Orders List -->
+<div class="space-y-6">
+<!-- Order Card 1: Shipped -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden transition-all-200 order-card-hover">
+<div class="bg-surface-container-low px-6 py-4 border-b border-outline-variant flex flex-wrap justify-between items-center gap-4">
+<div class="flex gap-8">
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Order ID</span>
+<span class="font-bold text-primary">#RV-882941-X</span>
+</div>
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Placed On</span>
+<span class="font-medium">Oct 24, 2023</span>
+</div>
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Total</span>
+<span class="font-bold text-primary">$492.50</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-white text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                            Shipped
+                        </span>
+</div>
+</div>
+<div class="p-6 flex flex-col lg:flex-row gap-8">
+<div class="flex-grow space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-lg flex-shrink-0 bg-cover bg-center border border-outline-variant" data-alt="A professional studio product photograph of a high-end royal blue mechanical keyboard on a clean white desk surface. The lighting is bright and crisp, emphasizing the texture of the keycaps and the sleek modern design. The mood is professional and sophisticated, fitting a premium corporate e-commerce brand aesthetic.">
+</div>
+<div>
+<h4 class="font-semibold text-on-surface">ProSeries Mechanical Keyboard V2</h4>
+<p class="text-label-md text-on-surface-variant">Switch Type: Brown | Color: Midnight Blue</p>
+<p class="text-label-md font-bold mt-1">$289.00</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-lg flex-shrink-0 bg-cover bg-center border border-outline-variant" data-alt="A minimalist overhead view of a premium ergonomic wireless mouse in white and silver, sitting on a designer felt desk mat. The lighting is soft and diffused with low-contrast shadows, creating a high-end corporate feel. The aesthetic is clean, modern, and trustworthy, perfectly aligned with professional tech retail.">
+</div>
+<div>
+<h4 class="font-semibold text-on-surface">Precision Air Wireless Mouse</h4>
+<p class="text-label-md text-on-surface-variant">Connectivity: 2.4GHz + BT | DPI: 16000</p>
+<p class="text-label-md font-bold mt-1">$203.50</p>
+</div>
+</div>
+</div>
+<div class="lg:w-64 flex flex-col gap-3 justify-center border-t lg:border-t-0 lg:border-l border-outline-variant pt-6 lg:pt-0 lg:pl-8">
+<button class="w-full py-3 rounded bg-secondary-container text-white font-bold hover:bg-on-secondary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">track_changes</span>
+                            Track Order
+                        </button>
+<button class="w-full py-3 rounded border border-primary text-primary font-bold hover:bg-primary-fixed transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                            Invoice
+                        </button>
+</div>
+</div>
+</div>
+<!-- Order Card 2: Delivered -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden transition-all-200 order-card-hover">
+<div class="bg-surface-container-low px-6 py-4 border-b border-outline-variant flex flex-wrap justify-between items-center gap-4">
+<div class="flex gap-8">
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Order ID</span>
+<span class="font-bold text-primary">#RV-771020-B</span>
+</div>
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Placed On</span>
+<span class="font-medium">Sep 15, 2023</span>
+</div>
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Total</span>
+<span class="font-bold text-primary">$1,240.00</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Delivered
+                        </span>
+</div>
+</div>
+<div class="p-6 flex flex-col lg:flex-row gap-8">
+<div class="flex-grow space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-lg flex-shrink-0 bg-cover bg-center border border-outline-variant" data-alt="Close-up of a high-resolution 4K monitor displaying a vibrant digital dashboard with deep blues and oranges. The monitor has thin bezels and a metallic stand. The background is a blurred professional office space. The lighting is soft and even, highlighting the premium quality of the electronics hardware.">
+</div>
+<div>
+<h4 class="font-semibold text-on-surface">UltraVision 4K 32" Creative Display</h4>
+<p class="text-label-md text-on-surface-variant">Color Profile: DCI-P3 98% | IPS Panel</p>
+<p class="text-label-md font-bold mt-1">$1,240.00</p>
+</div>
+</div>
+</div>
+<div class="lg:w-64 flex flex-col gap-3 justify-center border-t lg:border-t-0 lg:border-l border-outline-variant pt-6 lg:pt-0 lg:pl-8">
+<button class="w-full py-3 rounded bg-primary text-white font-bold hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">restart_alt</span>
+                            Buy Again
+                        </button>
+<button class="w-full py-3 rounded border border-primary text-primary font-bold hover:bg-primary-fixed transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                            Invoice
+                        </button>
+</div>
+</div>
+</div>
+<!-- Order Card 3: Processing -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden transition-all-200 order-card-hover">
+<div class="bg-surface-container-low px-6 py-4 border-b border-outline-variant flex flex-wrap justify-between items-center gap-4">
+<div class="flex gap-8">
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Order ID</span>
+<span class="font-bold text-primary">#RV-990152-Z</span>
+</div>
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Placed On</span>
+<span class="font-medium">Today, 10:42 AM</span>
+</div>
+<div>
+<span class="block text-label-sm text-outline uppercase tracking-tighter">Total</span>
+<span class="font-bold text-primary">$85.99</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-primary text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">update</span>
+                            Processing
+                        </span>
+</div>
+</div>
+<div class="p-6 flex flex-col lg:flex-row gap-8">
+<div class="flex-grow space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-lg flex-shrink-0 bg-cover bg-center border border-outline-variant" data-alt="A sleek designer leather laptop sleeve in rich tan brown, lying on a clean white surface. The product has visible fine stitching and a minimalist logo stamp. The aesthetic is extremely clean and high-end corporate, with soft natural light coming from a side window creating a professional and reliable vibe.">
+</div>
+<div>
+<h4 class="font-semibold text-on-surface">Luxury Leather Laptop Sleeve</h4>
+<p class="text-label-md text-on-surface-variant">Size: 14-inch | Material: Vegan Leather</p>
+<p class="text-label-md font-bold mt-1">$85.99</p>
+</div>
+</div>
+</div>
+<div class="lg:w-64 flex flex-col gap-3 justify-center border-t lg:border-t-0 lg:border-l border-outline-variant pt-6 lg:pt-0 lg:pl-8">
+<div class="text-center py-2">
+<p class="text-label-sm text-on-surface-variant italic mb-2">Processing at warehouse</p>
+</div>
+<button class="w-full py-3 rounded border border-primary text-primary font-bold hover:bg-primary-fixed transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                            Invoice
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center items-center gap-2">
+<button class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded border border-outline-variant hover:bg-surface-container transition-colors">2</button>
+<button class="w-10 h-10 rounded border border-outline-variant hover:bg-surface-container transition-colors">3</button>
+<span class="px-2">...</span>
+<button class="w-10 h-10 rounded border border-outline-variant hover:bg-surface-container transition-colors">8</button>
+<button class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-base bg-surface-container-low border-t border-outline-variant mt-20">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-md text-headline-md text-primary">Ravi Store</span>
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 Ravi Store. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">language</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95', 'opacity-80');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95', 'opacity-80');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95', 'opacity-80');
+            });
+        });
+    </script>
+</body></html>

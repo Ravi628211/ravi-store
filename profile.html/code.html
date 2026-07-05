@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile - Ravi Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .active-nav-link {
+            border-bottom: 2px solid #00113a; /* Primary color */
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed": "#2f1500",
+                        "surface-dim": "#dadadc",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "surface-container-low": "#f3f3f6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-surface-variant": "#444650",
+                        "outline": "#757682",
+                        "primary-container": "#002366",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e1e3e4",
+                        "surface": "#f9f9fc",
+                        "surface-tint": "#435b9f",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#b3c5ff",
+                        "on-tertiary-container": "#8e9091",
+                        "on-primary-container": "#758dd5",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "on-surface": "#1a1c1e",
+                        "on-secondary-container": "#603100",
+                        "on-primary-fixed": "#00174a",
+                        "secondary-container": "#fd8b00",
+                        "surface-container": "#eeeef0",
+                        "background": "#f9f9fc",
+                        "on-error": "#ffffff",
+                        "tertiary": "#121516",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#904d00",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffdcc3",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "outline-variant": "#c5c6d2",
+                        "inverse-surface": "#2f3133",
+                        "tertiary-container": "#26292a",
+                        "surface-container-highest": "#e2e2e5",
+                        "primary": "#00113a",
+                        "on-background": "#1a1c1e",
+                        "surface-variant": "#e2e2e5",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-bright": "#f9f9fc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-desktop": "32px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant h-20">
+<div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-full">
+<div class="text-headline-md font-headline-md font-bold text-primary">Ravi Store</div>
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md font-semibold">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Shop</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Categories</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Deals</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Orders</a>
+</nav>
+<div class="flex items-center gap-base">
+<div class="relative hidden lg:block mr-4">
+<input class="bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 w-64 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search products..." type="text"/>
+</div>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-primary border-b-2 border-primary pb-1">
+<span class="material-symbols-outlined" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-container-max mx-auto px-margin-desktop py-12 min-h-[calc(100vh-160px)]">
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Navigation -->
+<aside class="w-full md:w-1/4">
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional studio headshot of a smiling customer for an e-commerce platform. The lighting is soft and flattering, with a clean white studio background that matches a premium, modern UI aesthetic. The subject is wearing a smart-casual royal blue shirt, echoing the brand identity. The image is crisp, high-resolution, and projects reliability and approachability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNkYMT6gcxzIHD76UFuv8eRLfpGwhJUjamy1PSLS53luTzBnXNzYR86u3zVFJiAWsG119cc1Xc3NC-KLY3ZLuUCvFQCXeh2sAWdzTCJ5GRZhNd8XrzCSB8Y8FtiUYa8KaYtEmyrf2HdfKNL__6j1ZTiz8XxS8HHiU5z3AgSOqHhgLfud-T35sbo7Aqu1cwwUTU3WnVP4PEjx6spQAXRcCRvl6qi2b98LuDx-J6MLmK4nLWH22npJm_0wt6ROcIJqC8bwB76evM3w"/>
+</div>
+<div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">Alex Ravi</h3>
+<p class="text-label-md text-on-surface-variant">Premium Member</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col p-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+                            Profile
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="package">package</span>
+                            My Orders
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="favorite">favorite</span>
+                            Wishlist
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="payments">payments</span>
+                            Payment Methods
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all group border-t border-outline-variant mt-4 pt-4" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="logout">logout</span>
+                            Sign Out
+                        </a>
+</nav>
+</div>
+</aside>
+<!-- Profile Content -->
+<section class="w-full md:w-3/4">
+<!-- Profile Header -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Account Profile</h1>
+<p class="text-on-surface-variant">Manage your personal information and delivery preferences.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+                            Change Password
+                        </button>
+<button class="px-6 py-2 bg-secondary text-on-secondary font-semibold rounded-lg hover:brightness-110 shadow-sm transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+                            Edit Profile
+                        </button>
+</div>
+</div>
+<!-- Bento Grid Layout for Profile Info -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Basic Info Card -->
+<div class="md:col-span-2 bg-surface border border-outline-variant rounded-xl p-8 shadow-sm">
+<h2 class="font-headline-md text-body-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+                            Personal Information
+                        </h2>
+<div class="space-y-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label class="block text-label-sm text-on-surface-variant uppercase mb-1">Full Name</label>
+<p class="font-body-md text-on-surface font-medium border-b border-surface-container-high pb-2">Alex Ravi</p>
+</div>
+<div>
+<label class="block text-label-sm text-on-surface-variant uppercase mb-1">Email Address</label>
+<p class="font-body-md text-on-surface font-medium border-b border-surface-container-high pb-2">alex.ravi@example.com</p>
+</div>
+<div>
+<label class="block text-label-sm text-on-surface-variant uppercase mb-1">Mobile Number</label>
+<p class="font-body-md text-on-surface font-medium border-b border-surface-container-high pb-2">+1 (555) 012-3456</p>
+</div>
+<div>
+<label class="block text-label-sm text-on-surface-variant uppercase mb-1">Birthday</label>
+<p class="font-body-md text-on-surface font-medium border-b border-surface-container-high pb-2">October 14, 1992</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Profile Photo Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center text-center shadow-sm">
+<div class="relative group cursor-pointer">
+<div class="w-32 h-32 rounded-full border-4 border-secondary-fixed overflow-hidden mb-4 transition-transform group-hover:scale-105">
+<img class="w-full h-full object-cover" data-alt="A close-up of the same customer character in a high-fashion, professional e-commerce context. The lighting is sharp and dynamic, casting subtle shadows to define facial features. The background is a soft gradient of royal blue to white, maintaining brand consistency. The mood is sophisticated and clean, representing a premium user profile avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB65ugRcBoCF5HxyPW42joNI_EtEgVqqJ6SpEfNsnn3nvbvLJ1Cb7t8c0hnwCk5RE47ICQp3HKxDpU8-yvQJoWSgmGeh230MPxBxHXtoBDT5aB4sx_DjCHqGhww0KZurexu6IT1vU07Z9D9M9Y98Nhq9xMS9LN8t9fNmIEd6vbl6yKSKjRFp5q59xxBD5OpRKfSzTkUxqHqn4GrSSUFth-3JgjXI_D3o_7iw2pCwZidil6ynN0nVVQMDKmRZ68MxUS73GlatSTXug"/>
+</div>
+<div class="absolute bottom-4 right-0 bg-primary text-on-primary p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]" data-icon="photo_camera">photo_camera</span>
+</div>
+</div>
+<h3 class="font-bold text-on-surface">Alex Ravi</h3>
+<p class="text-label-md text-on-surface-variant mb-4">Member since 2021</p>
+<button class="text-primary font-semibold text-label-md hover:underline decoration-2 underline-offset-4">Update Photo</button>
+</div>
+<!-- Delivery Address Card -->
+<div class="md:col-span-3 bg-surface border border-outline-variant rounded-xl p-8 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-body-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+                                Primary Delivery Address
+                            </h2>
+<button class="text-secondary font-bold text-label-md flex items-center gap-1 hover:brightness-90 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_location">add_location</span>
+                                Change Address
+                            </button>
+</div>
+<div class="flex flex-col lg:flex-row gap-8 items-center">
+<div class="w-full lg:w-1/3 h-48 rounded-lg overflow-hidden border border-outline-variant">
+<div class="w-full h-full bg-surface-container-high flex items-center justify-center relative">
+<!-- Map Placeholder -->
+<div class="absolute inset-0 grayscale opacity-40 mix-blend-multiply" data-alt="A high-quality, minimalist map visualization showing a residential urban neighborhood in a modern, clean cartographic style. The colors are muted grays and soft blues, with a single vibrant orange pin indicating a specific location. The design is corporate and professional, reflecting an efficient delivery service interface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFAUyFtfI7g0iT64Uu3zyw_ITgW1XgEIt1ILFk_blUZSIF1UXo4pxeVx3lhWWpZMtVTKlLwckO3TJRKmhgJLZHMkhgt6e5kvTiGmYS5NwkerFWR4IgqGchLVo_Pe6d7ANTcq5LLuF918a4Q4Qg3OtR2m1D-5I63enuaUmj8qBiH4J02ZjQlme3nTLv-fTMpi3XPqS0Kt6ZbsJxwU-ikPpLIRHjeMNmfUGEHI8mCzDnmn0JjDrvT2GdexUxXSXx-sZiF1GKJ_zg3w')"></div>
+<div class="z-10 bg-white p-3 rounded-full shadow-xl">
+<span class="material-symbols-outlined text-secondary scale-150" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<!-- City name for image injection logic if applicable -->
+<span data-location="San Francisco"></span>
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div class="bg-surface-container-low p-4 rounded-lg border-l-4 border-primary">
+<div class="flex items-start justify-between">
+<div>
+<span class="px-2 py-0.5 bg-primary text-on-primary text-[10px] font-bold uppercase rounded-sm mb-2 inline-block">Default</span>
+<p class="font-bold text-on-surface">Home - Primary</p>
+<p class="text-on-surface-variant">782 Premium Avenue, Suite 400</p>
+<p class="text-on-surface-variant">San Francisco, CA 94103</p>
+<p class="text-on-surface-variant">United States</p>
+</div>
+<span class="material-symbols-outlined text-primary-container" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex gap-4">
+<p class="text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="call">call</span>
+                                        +1 (555) 012-3456
+                                    </p>
+<p class="text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                                        Evening Delivery Preferred
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Loyalty Stats -->
+<div class="md:col-span-1 bg-gradient-to-br from-primary-container to-primary rounded-xl p-6 text-on-primary shadow-lg flex flex-col justify-between">
+<div>
+<p class="text-primary-fixed-dim text-label-sm uppercase font-bold mb-2">Rewards Points</p>
+<h2 class="text-display-lg font-display-lg leading-none">2,450</h2>
+</div>
+<div class="mt-8">
+<div class="w-full bg-white/20 h-2 rounded-full overflow-hidden mb-2">
+<div class="bg-secondary-container h-full w-3/4"></div>
+</div>
+<p class="text-label-sm">550 points until Gold Status</p>
+</div>
+</div>
+<div class="md:col-span-1 bg-surface border border-outline-variant rounded-xl p-6 shadow-sm">
+<p class="text-on-surface-variant text-label-sm uppercase font-bold mb-2">Recent Order</p>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="headphones">headphones</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface line-clamp-1">Pro Wireless Headphones</h4>
+<p class="text-label-sm text-secondary font-bold">In Transit</p>
+</div>
+</div>
+<button class="w-full mt-4 py-2 text-label-md font-bold border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">Track Order</button>
+</div>
+<div class="md:col-span-1 bg-surface border border-outline-variant rounded-xl p-6 shadow-sm">
+<p class="text-on-surface-variant text-label-sm uppercase font-bold mb-2">Saved Wallet</p>
+<div class="flex items-center gap-3 mb-4">
+<div class="px-2 py-1 bg-surface-container-highest rounded text-[10px] font-bold border border-outline-variant">VISA</div>
+<p class="font-mono text-on-surface">**** 8842</p>
+</div>
+<p class="text-label-sm text-on-surface-variant">Expires 08/26</p>
+<button class="w-full mt-4 py-2 text-label-md font-bold text-primary hover:underline">Manage Cards</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-base bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="font-headline-md text-headline-md text-primary font-bold">Ravi Store</div>
+<div class="flex gap-8 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant">
+                © 2024 Ravi Store. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95', 'opacity-80');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95', 'opacity-80');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95', 'opacity-80');
+            });
+        });
+    </script>
+</body></html>

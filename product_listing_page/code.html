@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ravi Store | Premium Collections</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e0e3e5",
+                    "outline": "#737784",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface-variant": "#d8e3fb",
+                    "on-surface": "#111c2d",
+                    "secondary-container": "#fe6b00",
+                    "primary-fixed": "#d9e2ff",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#dee8ff",
+                    "on-secondary-fixed": "#351000",
+                    "secondary-fixed-dim": "#ffb693",
+                    "surface-dim": "#cfdaf2",
+                    "outline-variant": "#c3c6d5",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-bright": "#f9f9ff",
+                    "surface-tint": "#1d59c1",
+                    "inverse-on-surface": "#ecf1ff",
+                    "inverse-surface": "#263143",
+                    "tertiary-container": "#55585a",
+                    "on-primary-fixed-variant": "#00419c",
+                    "on-surface-variant": "#434653",
+                    "background": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-background": "#111c2d",
+                    "on-primary-fixed": "#001945",
+                    "on-secondary-container": "#572000",
+                    "primary-container": "#0f52ba",
+                    "primary": "#003c90",
+                    "tertiary": "#3d4143",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#bcceff",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "inverse-primary": "#b0c6ff",
+                    "secondary": "#a04100",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-inverse-surface": "#f9f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-sm": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "label-md": ["Inter"],
+                    "display-lg-mobile": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .product-card-hover:hover .quick-add {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-[0_10px_30px_rgba(15,82,186,0.05)]">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<!-- Brand Logo -->
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary">Ravi Store</div>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-headline-sm text-headline-sm font-semibold text-on-surface-variant hover:text-primary transition-opacity duration-200" href="#">Clothes</a>
+<a class="font-headline-sm text-headline-sm font-semibold text-on-surface-variant hover:text-primary transition-opacity duration-200" href="#">Home &amp; Kitchen</a>
+<a class="font-headline-sm text-headline-sm font-semibold text-on-surface-variant hover:text-primary transition-opacity duration-200" href="#">Mobile Accessories</a>
+<a class="font-headline-sm text-headline-sm font-semibold text-primary border-b-2 border-primary pb-1" href="#">Electronics</a>
+</div>
+<!-- Trailing Icons & Search -->
+<div class="flex items-center gap-stack-md">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search premium tech..." type="text"/>
+</div>
+<div class="flex gap-4">
+<button class="active:scale-95 transition-transform duration-150"><span class="material-symbols-outlined text-on-surface-variant hover:text-primary">favorite</span></button>
+<button class="active:scale-95 transition-transform duration-150"><span class="material-symbols-outlined text-on-surface-variant hover:text-primary">shopping_cart</span></button>
+<button class="active:scale-95 transition-transform duration-150"><span class="material-symbols-outlined text-on-surface-variant hover:text-primary">account_circle</span></button>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-on-surface-variant text-body-sm mb-stack-md">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Electronics</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Premium Headphones</span>
+</nav>
+<!-- Category Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-lg gap-gutter">
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Premium Headphones</h1>
+<p class="text-on-surface-variant mt-2 font-body-lg">Elevate your auditory experience with our curated high-fidelity collection.</p>
+</div>
+<!-- Sorting -->
+<div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)]">
+<span class="text-label-md text-outline uppercase pl-2">Sort By</span>
+<select class="bg-transparent border-none text-body-md font-semibold focus:ring-0 cursor-pointer text-primary">
+<option>Popularity</option>
+<option>Price: High-Low</option>
+<option>Price: Low-High</option>
+<option>Newest First</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-64 space-y-stack-lg sticky top-32 h-fit">
+<!-- Category Filter -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-[0_10px_30px_rgba(15,82,186,0.05)]">
+<h3 class="font-headline-sm text-on-surface mb-4">Category</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">Over-Ear</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">Noise Cancelling</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">Wireless Buds</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-[0_10px_30px_rgba(15,82,186,0.05)]">
+<h3 class="font-headline-sm text-on-surface mb-4">Price Range</h3>
+<div class="px-2">
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+<div class="flex justify-between mt-4 text-label-md text-outline">
+<span>₹1,999</span>
+<span>₹49,999+</span>
+</div>
+</div>
+</div>
+<!-- Rating Filter -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-[0_10px_30px_rgba(15,82,186,0.05)]">
+<h3 class="font-headline-sm text-on-surface mb-4">Rating</h3>
+<div class="space-y-3">
+<button class="flex items-center gap-2 hover:text-primary text-on-surface-variant">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+</div>
+<span class="text-body-sm">&amp; Up</span>
+</button>
+</div>
+</div>
+<!-- Color Filter -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-[0_10px_30px_rgba(15,82,186,0.05)]">
+<h3 class="font-headline-sm text-on-surface mb-4">Colors</h3>
+<div class="flex flex-wrap gap-3">
+<button class="w-8 h-8 rounded-full border-2 border-primary bg-on-surface" title="Midnight Black"></button>
+<button class="w-8 h-8 rounded-full border border-outline-variant bg-surface-dim" title="Silver Frost"></button>
+<button class="w-8 h-8 rounded-full border border-outline-variant bg-primary-container" title="Royal Blue"></button>
+<button class="w-8 h-8 rounded-full border border-outline-variant bg-secondary-container" title="Burnt Orange"></button>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-1">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="product-card-hover group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(15,82,186,0.05)] flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A premium pair of matte black over-ear headphones displayed on a minimalist white pedestal. The lighting is soft and professional, highlighting the leather texture of the earcups and the sleek metallic finish of the frame. The background is a clean, neutral gradient that emphasizes the high-end product design, fitting a modern luxury electronics aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWbsR9ARLag5-OVRWe60w33Kfh_Wu2a7ImNvhxOZKYfBFlu2T5HfbnpE23BEopvHMUM9JakE2eoaQuHZQS7OeFRKGOy840TtSYHSiztJaMOJ_ACRcW9T540eSWVo8Yr-ZqRRiVe6tdncxdgXhUEG2nEFA0oU4sz7SE2rneH2QwQzAhl_GBoH6EBabZ6eXW1nfZ7pVVlphvoO5wpcVy-oX95itF5XMEAjd1VlTSJtHlA3FYuRGI9mO82WfW7xSorG6g32tyoEa6IAU"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary text-label-md px-3 py-1 rounded-full font-bold">15% OFF</div>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<!-- Quick Add Hover Overlay -->
+<div class="quick-add opacity-0 translate-y-4 transition-all duration-300 absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-semibold text-body-sm shadow-lg active:scale-95 transition-transform">ADD TO CART</button>
+</div>
+</div>
+<div class="p-stack-md space-y-2">
+<div class="text-label-md text-outline uppercase tracking-wider font-semibold">Sonic Elite</div>
+<h3 class="font-body-md font-bold text-on-surface leading-tight">Elite Pro Wireless Headphones v2.0</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="text-body-sm text-on-surface-variant">(1.2k)</span>
+</div>
+<div class="flex items-baseline gap-2 pt-2">
+<span class="text-body-lg font-bold text-primary">₹24,999</span>
+<span class="text-body-sm text-outline line-through">₹29,999</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card-hover group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(15,82,186,0.05)] flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Brilliant white noise-cancelling headphones featuring brushed aluminum accents, photographed against a soft blue studio background. The design is sleek and modern, with ultra-soft memory foam cushions visible. Subtle blue-tinted shadows ground the product, creating a premium glassmorphic vibe that resonates with top-tier consumer technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATT4C_ckEwk4XiRP_0xWmKr4-VcNjYcGsbV5ZkFwXgbgkqw94swyAkyi_ECVtAgCio4N2RyU0Lf4978BpOjSW6QYp0MUd3X2ZFUvys7lGQXk8ItFYu08dCXmuNPNmKgsFwraf4sY2rwPTz6ZBTZ5RrmYh9fHcBFK4KSJoCjkrBdafah2NrBztndismnZaj3XQ1SwgTcZAmshO8DeKwmwiPrMZmVYdaPuljyQaNIGXoxzeeWMvKt2Pfz38b36tGxJh-PSgQl6rSsrk"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary text-label-md px-3 py-1 rounded-full font-bold">BEST SELLER</div>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="quick-add opacity-0 translate-y-4 transition-all duration-300 absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-semibold text-body-sm shadow-lg active:scale-95 transition-transform">ADD TO CART</button>
+</div>
+</div>
+<div class="p-stack-md space-y-2">
+<div class="text-label-md text-outline uppercase tracking-wider font-semibold">Zenith Audio</div>
+<h3 class="font-body-md font-bold text-on-surface leading-tight">Silence7 Hybrid Noise Cancelling</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-body-sm text-on-surface-variant">(856)</span>
+</div>
+<div class="flex items-baseline gap-2 pt-2">
+<span class="text-body-lg font-bold text-primary">₹32,499</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card-hover group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(15,82,186,0.05)] flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A futuristic set of metallic navy blue earbuds placed inside their glowing, compact charging case. The shot is a macro-view emphasizing the elegant contours and premium finish of the case. Dramatic lighting creates sharp highlights and deep, velvety shadows, conveying a sense of high-tech luxury and portability in a modern Indian tech marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcoL7b6BeqlQaBKihf8l4OKA6qvBcARG-jYNdOWZsXTV9eR3JK3gNRc_v9mU4whLsSh9F0ElqqOY8R2K3QEUMFzvovQNOUTFsq8A2XDnLpy6fyQK-ut6blCxlmQsjFYUuk684r4p8a2Cowq20PPeJvNeEP0ZkqmH9hk2ulY19Dsoo0UVUN8-v3FRDV9-KOtnXs8qmXrVP9n7X1CCbukvLUztqDeGYoHxwXRwToLq_nJ6LRUok2rgtXqaePAfhL5jwW1is_AAXwakw"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary text-label-md px-3 py-1 rounded-full font-bold">NEW ARRIVAL</div>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="quick-add opacity-0 translate-y-4 transition-all duration-300 absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-semibold text-body-sm shadow-lg active:scale-95 transition-transform">ADD TO CART</button>
+</div>
+</div>
+<div class="p-stack-md space-y-2">
+<div class="text-label-md text-outline uppercase tracking-wider font-semibold">Pulse Audio</div>
+<h3 class="font-body-md font-bold text-on-surface leading-tight">Pulse X-1 Carbon Fiber Earbuds</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<span class="text-body-sm text-on-surface-variant">(120)</span>
+</div>
+<div class="flex items-baseline gap-2 pt-2">
+<span class="text-body-lg font-bold text-primary">₹18,990</span>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="product-card-hover group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(15,82,186,0.05)] flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Professional studio-grade headphones in a rich bronze and charcoal finish, shown on a wooden studio desk. The ambient lighting is warm and golden, reflecting off the metallic parts of the headband. The aesthetic is sophisticated and creative, suggesting a blend of classic craftsmanship and modern digital performance for music professionals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcJOA8wwrfctJOSFVtUO9kasKOk1Ht3gZ1mgpLUoHYFD2hVVzznRO2w3H3wfYlOqvt964yRNUDLYlWDjQDLwULOxxyyevAkmp8fTmIgOfxUBu-mO6EjsEG0w5Ad4Mij9eFVzTsa-ZmtdCPzviIwkdshUJ7NsjetXJBs6RzClrMDsm4woJclmSrBIsoOifEBScD73HJ8LdZyka-EoMmWvOg4ONEvD0acsOE-vZQekPBn63wUVexaYLoODR_RUK3Kj51udkOSxnFNkw"/>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="quick-add opacity-0 translate-y-4 transition-all duration-300 absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-semibold text-body-sm shadow-lg active:scale-95 transition-transform">ADD TO CART</button>
+</div>
+</div>
+<div class="p-stack-md space-y-2">
+<div class="text-label-md text-outline uppercase tracking-wider font-semibold">Master Audio</div>
+<h3 class="font-body-md font-bold text-on-surface leading-tight">Studio Master Reference 500</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-body-sm text-on-surface-variant">(442)</span>
+</div>
+<div class="flex items-baseline gap-2 pt-2">
+<span class="text-body-lg font-bold text-primary">₹44,500</span>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="product-card-hover group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(15,82,186,0.05)] flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Lightweight gaming headset in vibrant royal blue with orange accents, featuring integrated LED lights. The image is captured in a dynamic, high-energy gaming setup with soft neon backlighting. The design is bold and ergonomically shaped, emphasizing comfort for long durations and a high-performance aesthetic for the modern competitive gamer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeKmRO-FwWBx_yfW1W8_Rb2O2L6c1tP2-nZBUa856zGPNFvtzuTxWSYbRJa8sX_YAfM6TraGvqxn1SrC2PsWyOrp5YI9dnHNMGlA3lf2tNQOytPanmLtYwJL0eDZ5ltpoLZdYDGT8G6KdBJQfuziHQ-lzXhC4ZIuBW6Vm_Sx2OeWLmGOh_qfol8ldIRJgxCs6xOaYFqJz-Bu4NKpVYFr0-BbUCb_rQ-91wdU7rHNOQjcbUOL5tRPKBrKF9-ba5FdC_SEMSkQnW3bM"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary text-label-md px-3 py-1 rounded-full font-bold">HOT DEAL</div>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="quick-add opacity-0 translate-y-4 transition-all duration-300 absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-semibold text-body-sm shadow-lg active:scale-95 transition-transform">ADD TO CART</button>
+</div>
+</div>
+<div class="p-stack-md space-y-2">
+<div class="text-label-md text-outline uppercase tracking-wider font-semibold">Ravi Gaming</div>
+<h3 class="font-body-md font-bold text-on-surface leading-tight">Vortex Surround Gaming 7.1</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<span class="text-body-sm text-on-surface-variant">(2.3k)</span>
+</div>
+<div class="flex items-baseline gap-2 pt-2">
+<span class="text-body-lg font-bold text-primary">₹8,999</span>
+<span class="text-body-sm text-outline line-through">₹12,499</span>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="product-card-hover group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(15,82,186,0.05)] flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist rose gold wireless in-ear monitors with a transparent protective case. The product is shot in a high-key, fashion-oriented style with bright, diffused natural light. The aesthetic is soft, clean, and elegant, appealing to a style-conscious demographic. The metallic textures shimmer subtly, reinforcing the premium quality and modern elegance of the Ravi Store brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzy5wpzuFWAG_Y7ZWLvq85chPaPfyb5iFbJmHIOd2Bem8TDgChmTAojHnCnshw5wAciCU4zhlkLBaI5B0E0WSnJ8ZCp-fAuLIsHfGKv_pkluoxp6f8h4W4R8Qr9v4x6sIMKNascy27LpiePwBiVSYmsLgVGPCAi8S9IkmiCaflZ9KVQRc5bKHL46FptPINb4Vomob5zvHrh3OUcgzuT3LiN7zD2nAPRl3Lt5TerkGdfOlf544c8Rf7a7mgj0Z0aLRWAP7pUzKy1tE"/>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="quick-add opacity-0 translate-y-4 transition-all duration-300 absolute bottom-4 left-4 right-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-lg font-semibold text-body-sm shadow-lg active:scale-95 transition-transform">ADD TO CART</button>
+</div>
+</div>
+<div class="p-stack-md space-y-2">
+<div class="text-label-md text-outline uppercase tracking-wider font-semibold">Aura Buds</div>
+<h3 class="font-body-md font-bold text-on-surface leading-tight">Crystal Clear Wireless Pods</h3>
+<div class="flex items-center gap-1">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<span class="text-body-sm text-on-surface-variant">(310)</span>
+</div>
+<div class="flex items-baseline gap-2 pt-2">
+<span class="text-body-lg font-bold text-primary">₹5,499</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center items-center gap-2 mt-stack-lg">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container text-on-surface-variant">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container text-on-surface-variant">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container text-on-surface-variant">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface mt-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="font-headline-sm text-headline-sm font-bold text-primary mb-4">Ravi Store</div>
+<p class="text-on-surface-variant text-body-sm mb-6">Redefining the digital shopping experience for the modern aesthetic consumer. Quality, trust, and speed in every delivery.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:opacity-80 transition-opacity" href="#"><span class="material-symbols-outlined text-[18px]">public</span></a>
+<a class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:opacity-80 transition-opacity" href="#"><span class="material-symbols-outlined text-[18px]">share</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface mb-6">Quick Links</h4>
+<ul class="space-y-3">
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">About Us</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Careers</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Press Release</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Corporate Info</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface mb-6">Support</h4>
+<ul class="space-y-3">
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Return Policy</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface mb-6">Newsletter</h4>
+<p class="text-body-sm text-on-surface-variant mb-4">Subscribe for exclusive offers and tech drops.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container border-none rounded-lg focus:ring-1 focus:ring-primary text-body-sm" placeholder="Your email" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-bold text-body-sm active:scale-95 transition-transform">JOIN</button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-body-sm text-on-surface-variant">© 2024 Ravi Store. All rights reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-outline">payments</span>
+<span class="material-symbols-outlined text-outline">credit_card</span>
+<span class="material-symbols-outlined text-outline">account_balance_wallet</span>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/80 backdrop-blur-md border-t border-outline-variant z-50 flex justify-around items-center py-3">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">HOME</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-[10px] font-bold">SHOP</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-[10px] font-bold">CART</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">PROFILE</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions and Lightweight atmospheric effects
+        document.querySelectorAll('.product-card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Potential for adding dynamic shadows or subtle transformations
+            });
+        });
+
+        // Simple smooth scroll behavior for links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>

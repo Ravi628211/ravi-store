@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Details - Ravi Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .zoom-container:hover img {
+            transform: scale(1.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #002366;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeef0",
+                        "on-tertiary-container": "#8e9091",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdcc3",
+                        "inverse-surface": "#2f3133",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-high": "#e8e8ea",
+                        "on-background": "#1a1c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "tertiary-fixed": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "inverse-primary": "#b3c5ff",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "outline": "#757682",
+                        "on-secondary-container": "#603100",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-surface-variant": "#444650",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "primary-container": "#002366",
+                        "secondary": "#904d00",
+                        "primary": "#00113a",
+                        "secondary-container": "#fd8b00",
+                        "on-secondary-fixed": "#2f1500",
+                        "surface-container-low": "#f3f3f6",
+                        "on-surface": "#1a1c1e",
+                        "background": "#f9f9fc",
+                        "outline-variant": "#c5c6d2",
+                        "on-primary-container": "#758dd5",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f9f9fc",
+                        "tertiary": "#121516",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e2e5",
+                        "surface-tint": "#435b9f",
+                        "on-primary-fixed": "#00174a",
+                        "tertiary-container": "#26292a",
+                        "surface": "#f9f9fc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-desktop": "32px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-on-tertiary-fixed border-b border-outline-variant dark:border-on-tertiary-fixed-variant w-full top-0 sticky z-50">
+<div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Ravi Store</div>
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md font-semibold">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-secondary transition-colors duration-200" href="#">Shop</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Categories</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Deals</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors duration-200" href="#">Orders</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-secondary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary transition-colors duration-200 relative">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute top-0 right-0 bg-secondary-container text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Breadcrumbs -->
+<nav class="flex text-label-md font-label-md mb-8 text-on-surface-variant">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="mx-2">/</span>
+<a class="hover:text-primary" href="#">Tech Gadgets</a>
+<span class="mx-2">/</span>
+<span class="text-on-surface">Titan Alpha Smartwatch</span>
+</nav>
+<!-- Product Hero Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+<!-- Image Gallery -->
+<div class="lg:col-span-7 grid grid-cols-12 gap-4">
+<div class="col-span-2 flex flex-col gap-4">
+<div class="aspect-square border border-outline-variant bg-white rounded-lg cursor-pointer overflow-hidden ring-2 ring-primary">
+<img class="w-full h-full object-cover" data-alt="A close-up high-resolution shot of a premium black smartwatch with a sleek circular sapphire crystal face, resting on a white minimalist surface. The lighting is crisp and professional, highlighting the metallic texture of the chassis. The brand Ravi Store identity is represented through clean lines and a premium corporate aesthetic with deep royal blue shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSdGDNMLno9XkconxaVtpAcsE33xSvVj62ury1fpRPvraJupQQWccfEVzdQSQ58MgI_hnWcGS6_NRhhiUOAydbyUft7wNqPoO6vihxC9e0mkRXdYh5TWXejqbXEESDalGiyS5i_JKn3vGf24cAoer3F_AvjzH8VRMauMEYpTVswET1Fjrq-PsyPdPsHOaEn7jwdrgzfJaOrWZKX88ycgPe-nqormN4Tz6I4Rc16BqQQQsoQ07gH50MXdBFX_pdSQd4ghEqVIMPFA"/>
+</div>
+<div class="aspect-square border border-outline-variant bg-white rounded-lg cursor-pointer overflow-hidden hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="A side view of a modern smartwatch showing its slim profile and detailed rotating crown button. The background is a soft neutral gray to emphasize the gadget's design. The lighting is soft-box studio style, maintaining the professional and reliable brand mood of Ravi Store with high-clarity details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxSwfnPpe0TP2u_hBbywgcufyRTnX4g_NPFxElvWhiNTUsVrQHmluaL3_T8pwNd6vdL_CW5j7rd0Og7JdKlUiTNu4CYKlwWy1fsOE1v5V_CQv5wqKKrSH_s6nDd54_Du8aR8rsKgBf2keSbI4h_kmX-HEEQa6xSRcWTYolXTGcUXZj5hbvCUh9f_t2zRwLHNjCvdhkSmvh4np6r8guy7d580EV3YPIxt_A_7_pRt9TJSeltcCLoR7JBqWhzVPPJlfmhSGg_9LEdA"/>
+</div>
+<div class="aspect-square border border-outline-variant bg-white rounded-lg cursor-pointer overflow-hidden hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="The underside of a premium smartwatch displaying its biometric sensors glowing with a soft green light. The sleek ceramic back is reflective and clean, photographed in a high-key lighting setup that feels modern and efficient. Visual cues of reliability and advanced technology are prominent in this studio product shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvP-2kZZaWkeRRDecoEREH6_sFKzHlyKQU3El2TihmioTzsIS1EBOXWNUoQHNKZItCQvp2xwug8fKUIdK5oZZhijRanrrrPT_I6sCTsXdwwwXdGKcEu6JSr15CorNOgPn6rZep5KfTSS2TnDlJTiqrVn_cR7NQhr58xD465TdaePArit44VH2H8h_Q_YExEB8zU-tff8vE6atphUhn-AHqgjIJrIMA6PtaSg6lE5ikpMDGbEanykbtFc_xKX7eAfPgrfBJay92Lw"/>
+</div>
+</div>
+<div class="col-span-10">
+<div class="zoom-container aspect-square bg-white border border-outline-variant rounded-xl overflow-hidden relative cursor-crosshair">
+<img class="w-full h-full object-cover transition-transform duration-500" data-alt="A hero product shot of the Titan Alpha Smartwatch displaying a vibrant health-tracking dashboard on its AMOLED screen. The watch has a premium leather strap and a titanium frame. The scene is set in a modern, brightly lit office environment, using high-end product photography techniques to showcase the energetic vibrant orange UI elements on the screen against the royal blue brand context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSWaWnRHGbGDahG8CKyi3zCkD-aRtr5zelt-5I5Wh3FcNHEq7cQdL15vnREfI_u21WPiG1KcEpZ9epnh9ZApgsysdnBoEpN67u6k2C8xsnTQ4e_E4S3xlCvkxM966gym8F9-ILCIJHy8PDMIWV5p0luf1gIGFV-TblRg6PA88cx9xYWVGG1p1Di_Oz4EB7_UJvGL70dBeo4V-Xdp5sZRloMrCTn0ZWIKqoutNh1bly4fHnrf9BM65gXf_fn4VXEfCbwOCT0kM-eg"/>
+<div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full text-label-sm font-label-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="zoom_in">zoom_in</span> Hover to zoom
+                        </div>
+</div>
+</div>
+</div>
+<!-- Product Info -->
+<div class="lg:col-span-5 space-y-6">
+<div>
+<span class="text-primary font-label-md tracking-wider">PREMIUM SERIES</span>
+<h1 class="font-headline-lg text-headline-lg mt-2 mb-1">Titan Alpha Smartwatch</h1>
+<div class="flex items-center gap-4">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined" data-icon="star_half">star_half</span>
+</div>
+<span class="text-label-md text-on-surface-variant font-medium">(1,248 Reviews)</span>
+<span class="w-px h-4 bg-outline-variant"></span>
+<span class="text-label-md text-green-600 font-bold">In Stock</span>
+</div>
+</div>
+<div class="flex items-baseline gap-4 py-4 border-y border-outline-variant">
+<span class="font-display-lg text-display-lg text-primary">$299.00</span>
+<span class="text-headline-md text-on-surface-variant line-through">$349.00</span>
+<span class="bg-secondary-container/10 text-secondary-container font-bold px-3 py-1 rounded text-label-md">15% OFF</span>
+</div>
+<!-- Selectors -->
+<div class="space-y-6">
+<div>
+<span class="block font-label-md text-on-surface mb-3">Color: <span class="font-bold">Midnight Titanium</span></span>
+<div class="flex gap-3">
+<button class="w-10 h-10 rounded-full bg-[#1a1c1e] ring-2 ring-primary ring-offset-2 transition-all"></button>
+<button class="w-10 h-10 rounded-full bg-[#757682] ring-1 ring-outline-variant hover:scale-105 transition-all"></button>
+<button class="w-10 h-10 rounded-full bg-[#002366] ring-1 ring-outline-variant hover:scale-105 transition-all"></button>
+</div>
+</div>
+<div>
+<span class="block font-label-md text-on-surface mb-3">Strap Size: <span class="font-bold">Large (44mm)</span></span>
+<div class="flex flex-wrap gap-2">
+<button class="px-6 py-2 border border-outline-variant rounded-lg font-label-md hover:border-primary hover:text-primary transition-all">Small</button>
+<button class="px-6 py-2 border border-outline-variant rounded-lg font-label-md hover:border-primary hover:text-primary transition-all">Medium</button>
+<button class="px-6 py-2 border-2 border-primary bg-primary/5 text-primary rounded-lg font-label-md font-bold transition-all">Large</button>
+</div>
+</div>
+<div>
+<span class="block font-label-md text-on-surface mb-3">Quantity</span>
+<div class="flex items-center w-32 border border-outline-variant rounded-lg overflow-hidden h-12">
+<button class="w-full h-full flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<span class="w-full text-center font-bold">1</span>
+<button class="w-full h-full flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-3 pt-4">
+<button class="w-full py-4 bg-secondary-container hover:bg-secondary text-white font-bold rounded-lg transition-all transform active:scale-[0.98] shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                        Add to Cart
+                    </button>
+<button class="w-full py-4 bg-primary hover:bg-primary-container text-white font-bold rounded-lg transition-all transform active:scale-[0.98] shadow-lg">
+                        Buy It Now
+                    </button>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-6">
+<div class="flex items-center gap-3 text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+                        Free Express Delivery
+                    </div>
+<div class="flex items-center gap-3 text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+                        2 Year Brand Warranty
+                    </div>
+</div>
+</div>
+</div>
+<!-- Tabs Content Section -->
+<div class="border-t border-outline-variant pt-12">
+<div class="flex gap-12 border-b border-outline-variant mb-8 overflow-x-auto whitespace-nowrap custom-scrollbar">
+<button class="pb-4 border-b-2 border-primary font-bold text-primary">Description</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant font-medium hover:text-primary">Specifications</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant font-medium hover:text-primary">Reviews (1,248)</button>
+<button class="pb-4 border-b-2 border-transparent text-on-surface-variant font-medium hover:text-primary">Shipping &amp; Returns</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+<!-- Description -->
+<div class="lg:col-span-2 space-y-8">
+<div class="prose prose-on-surface max-w-none">
+<h3 class="font-headline-md text-headline-md mb-4">Elevate Your Lifestyle</h3>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                            The Titan Alpha represents the pinnacle of wearable technology. Crafted from aerospace-grade titanium and featuring a sapphire crystal display, it's designed to withstand the rigors of professional life while providing the insights you need to excel. Whether you're tracking peak performance in the boardroom or the gym, the Titan Alpha offers unrivaled precision.
+                        </p>
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<h4 class="font-bold text-body-lg">Advanced Bio-Engine</h4>
+<p class="text-on-surface-variant">Real-time health monitoring with AI-driven insights that learn your body's patterns for personalized wellness coaching.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="battery_charging_full">battery_charging_full</span>
+</div>
+<h4 class="font-bold text-body-lg">14-Day Battery</h4>
+<p class="text-on-surface-variant">Proprietary power management system allows for up to two weeks of standard use on a single ultra-fast charge.</p>
+</div>
+</div>
+</div>
+<!-- Specs Table -->
+<div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant">
+<h3 class="font-headline-md text-headline-md mb-6">Technical Specifications</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+<div class="flex justify-between py-2 border-b border-outline-variant">
+<span class="text-on-surface-variant">Display</span>
+<span class="font-bold">1.4" AMOLED, 450x450px</span>
+</div>
+<div class="flex justify-between py-2 border-b border-outline-variant">
+<span class="text-on-surface-variant">Materials</span>
+<span class="font-bold">Titanium, Ceramic Back</span>
+</div>
+<div class="flex justify-between py-2 border-b border-outline-variant">
+<span class="text-on-surface-variant">Sensors</span>
+<span class="font-bold">ECG, SpO2, Heart Rate</span>
+</div>
+<div class="flex justify-between py-2 border-b border-outline-variant">
+<span class="text-on-surface-variant">Water Resistance</span>
+<span class="font-bold">5 ATM / 50m</span>
+</div>
+<div class="flex justify-between py-2 border-b border-outline-variant">
+<span class="text-on-surface-variant">Connectivity</span>
+<span class="font-bold">Bluetooth 5.3, Wi-Fi</span>
+</div>
+<div class="flex justify-between py-2 border-b border-outline-variant">
+<span class="text-on-surface-variant">OS Compatibility</span>
+<span class="font-bold">iOS &amp; Android</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Reviews Summary -->
+<div class="space-y-8">
+<div class="bg-white border border-outline-variant rounded-xl p-8 shadow-sm">
+<h3 class="font-headline-md text-headline-md mb-6">Customer Reviews</h3>
+<div class="text-center mb-8">
+<div class="text-5xl font-extrabold text-primary mb-2">4.8</div>
+<div class="flex justify-center text-secondary-container mb-1">
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill" data-icon="star" data-weight="fill">star</span>
+</div>
+<p class="text-label-md text-on-surface-variant">Based on 1,248 reviews</p>
+</div>
+<div class="space-y-4">
+<!-- Rating Bar 5 -->
+<div class="flex items-center gap-4">
+<span class="text-label-md font-bold w-4">5</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[85%]"></div>
+</div>
+<span class="text-label-md text-on-surface-variant w-10">85%</span>
+</div>
+<!-- Rating Bar 4 -->
+<div class="flex items-center gap-4">
+<span class="text-label-md font-bold w-4">4</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[10%]"></div>
+</div>
+<span class="text-label-md text-on-surface-variant w-10">10%</span>
+</div>
+<!-- Rating Bar 3 -->
+<div class="flex items-center gap-4">
+<span class="text-label-md font-bold w-4">3</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[3%]"></div>
+</div>
+<span class="text-label-md text-on-surface-variant w-10">3%</span>
+</div>
+<!-- Rating Bar 2 -->
+<div class="flex items-center gap-4">
+<span class="text-label-md font-bold w-4">2</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[1%]"></div>
+</div>
+<span class="text-label-md text-on-surface-variant w-10">1%</span>
+</div>
+<!-- Rating Bar 1 -->
+<div class="flex items-center gap-4">
+<span class="text-label-md font-bold w-4">1</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[1%]"></div>
+</div>
+<span class="text-label-md text-on-surface-variant w-10">1%</span>
+</div>
+</div>
+<button class="w-full mt-8 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary/5 transition-all">
+                            Write a Review
+                        </button>
+</div>
+<div class="space-y-6">
+<div class="border-b border-outline-variant pb-6">
+<div class="flex justify-between mb-2">
+<span class="font-bold">David S.</span>
+<span class="text-label-sm text-on-surface-variant">2 days ago</span>
+</div>
+<div class="flex text-secondary-container text-sm mb-3">
+<span class="material-symbols-outlined fill text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined fill text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic">"The build quality is insane. It feels like a high-end mechanical watch but with all the tech perks."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products Section -->
+<section class="mt-24">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg">Complete Your Gear</h2>
+<p class="text-on-surface-variant mt-2">Recommended accessories for your Titan Alpha</p>
+</div>
+<button class="text-primary font-bold flex items-center gap-2 hover:underline">
+                    View All <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Related Product 1 -->
+<div class="group bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A premium genuine brown leather watch strap with stainless steel buckles, displayed on a clean wooden surface. Warm, high-key studio lighting with the Ravi Store professional product aesthetic. The texture of the leather is visible and looks luxurious and reliable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB20CdodSJCWlgOGX23JVpS_U0vJE4MRb0U66Je_txo7MFWK7I6UMO233-KmL6JXF63wZ8fkqmj-6AH0aj5C-fAfcyLoX0XyPqAgUp-3MZ1QpsCRk_XkseyZlCAXD4cM1DmcjyVPfwbnGLDz_e6V21d_uXGnequs2b9ruC7UQ_uHvzik0dUXqiQ-JW2EWLQ3kSHutL78oBPgjDFOjwfUfHFe1ZAI3o9OWkeTuOvet9V9BewNdZTuDmS2yMzCsl4CG7AxTLiJR2hLg"/>
+</div>
+<div class="p-6">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Accessories</span>
+<h3 class="font-bold text-body-lg mt-1 mb-2">Artisan Leather Strap</h3>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-primary">$49.00</span>
+<button class="w-10 h-10 bg-surface-container-highest rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Related Product 2 -->
+<div class="group bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A sleek wireless charging dock for a smartwatch, featuring a minimalist matte black finish with a soft-touch texture. The dock is showcased in a modern corporate office setting with soft directional lighting. Consistent with the Ravi Store premium blue and white brand theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6T7YasMMIZ9lNG4rt-HWrR89NZGg7h5djS_-BBTVBM_U1uFmIos3khOth0jx-6JOPuPfBqv0b16-zHNFsUdL_i1dVNvh11XEpN0fzWz5jHVVGc1M0EmJqDRCodIDeJf8R9A4xNgRJFFojdZb9pBjBCuXQFlDJIQAApGBOBql9gewXAoQA5Td2kYF2luAsWda-7IvNyw5G5CjJoj6lvqVq86s3BfIV9ama1YCnBI6uFSAFEHohzrLSPyzNGue8mSlyIYRlPEjwOA"/>
+</div>
+<div class="p-6">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Power</span>
+<h3 class="font-bold text-body-lg mt-1 mb-2">Alpha Charging Dock</h3>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-primary">$35.00</span>
+<button class="w-10 h-10 bg-surface-container-highest rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Related Product 3 -->
+<div class="group bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A pack of high-grade tempered glass screen protectors for a smartwatch. The packaging is modern and clean with bold Ravi Store branding. The image is crisp, showing the clarity and thinness of the glass under bright studio lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa5T0lv47z_NuzN3SaamhFpGGH2tu2TOvtjzTuaUTm-KG0xEOFTGS7sQp-Hhh_rgwNHFlln-YUV-3f0jdK0tq8RQqUl_mfpCTbh6ls8qoAvYmNBdl2f3Pd1OcB08t2CrRzUdSG07yS-6-lEKay8VWXYH1pYgQK30wlmcM2pJxx4d6_8zeWAMuwqS8eH2rIHkMRpKBuumowyiwsz2pSWWlAejXFJTAKAsN0afQUe2CJaYmmTmAnNj2jk3K3XlBY7JCQxvvZrkJo_w"/>
+</div>
+<div class="p-6">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Protection</span>
+<h3 class="font-bold text-body-lg mt-1 mb-2">Diamond Shield Glass</h3>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-primary">$19.00</span>
+<button class="w-10 h-10 bg-surface-container-highest rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Related Product 4 -->
+<div class="group bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Active sport earbuds in a matching royal blue color, resting inside their charging case. The product looks energetic and durable, photographed against a high-contrast dark background with vibrant orange light accents from the side. Professional Ravi Store brand alignment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbkzU5zluwPW2DiKlO8C-QiY8BOz5GW45YNVOHDbiwrjCXeGy_6MLs62Pz3kWAvX7jkYgemSxaVqR98rLzoShdvqHUBCBLDWVdBXGzXehbY0fzjAqnchAj25O41ozNr2rffKwGeNNW-yJwr1LtndtmcssLj7c0hsbckESmycn2Gw45o4BjellBDCDOzdwpDi7j49roTPMFMAgX623kKlndjwBYcCwvHmvEknwswQK11IGlSqxTssz0DdKJx7CRjQspy7kgcmMuQw"/>
+</div>
+<div class="p-6">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Audio</span>
+<h3 class="font-bold text-body-lg mt-1 mb-2">Sonic Sync Earbuds</h3>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-primary">$129.00</span>
+<button class="w-10 h-10 bg-surface-container-highest rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-tertiary-container border-t border-outline-variant dark:border-on-tertiary-fixed-variant w-full py-base">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-base h-24">
+<div class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Ravi Store</div>
+<div class="flex gap-8 font-label-md text-label-md text-on-surface dark:text-on-tertiary-container">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Help Center</a>
+</div>
+<div class="font-label-md text-label-md text-on-surface dark:text-on-tertiary-container opacity-70">
+                © 2024 Ravi Store. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for Quantity Selector
+        let qty = 1;
+        const qtyDisplay = document.querySelector('.w-32 span.font-bold');
+        const minusBtn = document.querySelector('.w-32 button:first-child');
+        const plusBtn = document.querySelector('.w-32 button:last-child');
+
+        plusBtn.addEventListener('click', () => {
+            qty++;
+            qtyDisplay.innerText = qty;
+        });
+
+        minusBtn.addEventListener('click', () => {
+            if(qty > 1) {
+                qty--;
+                qtyDisplay.innerText = qty;
+            }
+        });
+
+        // Tab Switcher Mockup
+        const tabs = document.querySelectorAll('.flex.gap-12.border-b button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('border-primary', 'font-bold', 'text-primary');
+                    t.classList.add('border-transparent', 'text-on-surface-variant', 'font-medium');
+                });
+                tab.classList.remove('border-transparent', 'text-on-surface-variant', 'font-medium');
+                tab.classList.add('border-primary', 'font-bold', 'text-primary');
+            });
+        });
+
+        // Sticky buy bar observer (Mobile only)
+        // Add more vanilla JS for scroll-linked animations if needed
+    </script>
+</body></html>
